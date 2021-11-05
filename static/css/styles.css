@@ -28,10 +28,6 @@ h4.landing {
     color: black;    
 }
 
-h4.landing:hover {
-  
-    color: #ffeac7;  
-}
 
 h5.landing {
     text-align: center;
@@ -45,9 +41,6 @@ h6.landing {
 }
 
 
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
 
 
 
@@ -89,6 +82,8 @@ p.copyright {
     
 }
 
+/* ------Slider Styles------- */
+
 .slidecontainer {
     width: 100%; /* Width of the outside container */
 }
@@ -126,4 +121,24 @@ p.copyright {
   border-radius: 50%;
   background: #5cd1ff;
   cursor: pointer;
+}
+
+
+/* ------Emoji Styles------- */
+
+img.emoji {
+  height: 50px;
+  width: 50px;
+  margin-right: 2%;
+
+}
+
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

@@ -36,11 +36,6 @@
               <h1 class="display-4">What are you in the mood for?</h1>
               <h4>Select emotion range from sliders →</h4>
             </div>
-
-            <div class="d-flex justify-content-center">
-              <input class="btn btn-primary btn-lg" style="margin-top: 7%;" type="submit" value="Predict Network">
-            </div>
-            
           </div>
 
         </div>
@@ -51,110 +46,71 @@
 
           <div class="row" style="margin-top: 7%;">  <!-- start slider table row 1-->
 
-            <div class="col-lg-1">  <!-- start emoji column-->
+            <div class="col-lg-2">  <!-- start emoji column-->
               <img class="emoji" src="../static/images/emoticon-good-256.png" alt = "Good" >
+              <p>Good</p>
             </div> 
 
-            <div class="col-lg-11">  <!-- start slider column-->
+            <div class="col-lg-10">  <!-- start slider column-->
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myGoodRange">
-                <p>Good Value: <span id="outputGood"></span></p>
+                <p>Value: <span id="outputGood"></span></p>
               </div>              
             </div> 
 
           </div> <!--end row 1-->
 
 
-          <div class="row">  <!-- start row 2-->
 
-            <div class="col-lg-1">  <!-- start emoji column-->
-              <img class="emoji" src="../static/images/emoticon-fun-256.png" alt = "Fun" >
-            </div> 
 
-            <div class="col-lg-11">  <!-- start slider column-->
+            <div class="col-sm-10">  <!-- start slider column-->
+
+              <!-- Add sliders here-->
+
+              <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myGoodRange">
+                <p>Value: <span id="outputGood"></span></p>
+              </div>
+
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myFunRange">
-                <p>Fun Value: <span id="outputFun"></span></p>
-              </div>              
-            </div> 
+                <p>Value: <span id="outputFun"></span></p>
+              </div>
 
-          </div> <!--end row 2-->
-
-
-
-          <div class="row">  <!-- start row 3-->
-
-            <div class="col-lg-1">  <!-- start emoji column-->
-              <img class="emoji" src="../static/images/emoticon-wow-256.png" alt = "Wow" >
-            </div> 
-
-            <div class="col-lg-11">  <!-- start slider column-->
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myWowRange">
-                <p>Wow Value: <span id="outputWow"></span></p>
-              </div>              
-            </div> 
+                <p>Value: <span id="outputWow"></span></p>
+              </div>
 
-          </div> <!--end row 3-->
-
-
-
-          <div class="row">  <!-- start row 4-->
-
-            <div class="col-lg-1">  <!-- start emoji column-->
-              <img class="emoji" src="../static/images/emoticon-sad-256.png" alt = "Sad" >
-            </div> 
-
-            <div class="col-lg-11">  <!-- start slider column-->
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="mySadRange">
-                <p>Sad Value: <span id="outputSad"></span></p>
-              </div>              
-            </div> 
+                <p>Value: <span id="outputSad"></span></p>
+              </div>
 
-          </div> <!--end row 4-->
-
-
-          <div class="row">  <!-- start row 5-->
-
-            <div class="col-lg-1">  <!-- start emoji column-->
-              <img class="emoji" src="../static/images/emoticon-soso-256.png" alt = "Soso" >
-            </div> 
-
-            <div class="col-lg-11">  <!-- start slider column-->
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="mySosoRange">
-                <p>So So Value: <span id="outputSoso"></span></p>
-              </div>              
-            </div> 
-
-          </div> <!--end row 5-->
+                <p>Value: <span id="outputSoso"></span></p>
+              </div>
 
 
-
-          <div class="row">  <!-- start row 6-->
-
-            <div class="col-lg-1">  <!-- start emoji column-->
-              <img class="emoji" src="../static/images/emoticon-Bad-256.png" alt = "Bad" >
-            </div> 
-
-            <div class="col-lg-11">  <!-- start slider column-->
               <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myBadRange">
-                <p>Bad Value: <span id="outputBad"></span></p>
-              </div>              
-            </div> 
-
-          </div> <!--end row 6  end table-->
+                <p>Value: <span id="outputBad"></span></p>
+              </div>
 
 
-
+            
+          
 
 
 
 
+        </div> <!---End slider table-->
 
 
+
+
+        </div>   <!--end slider column-->
 
 
       
