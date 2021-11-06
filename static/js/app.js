@@ -4,6 +4,7 @@ console.log("I'm running")
 let showData;
 d3.json("show_display.json").then((shows) => {
   showData = shows;
+  let myRuntimes = getNetworkRuntimes(showData, "HBO")
   // networks = showData.map(function (show) {
   //   return show.network;
   // });
@@ -78,29 +79,36 @@ function getNetworkRuntimes(shows, network) {
   let networkRuntimes = []
   let networks = []
   shows.forEach(function (value) {
-    if (networks[value[network]]) {
-      networks[value[network]]++;
+    //let variable= value.network
+    //console.log(variable)
+    //if (networkRuntimes)
+    // let networks = shows.filter(function (citation) {
+    //   return citation.runtime == network
+    // });
+    
+    //  for (var j = 0; j < networks.length; j++) {
+    //        networkRuntimes.push(networks[j].name);
+    //    }
+    if (!networks.includes(value.network)) {
+      networks.push(value.network)
     }
-    if (!networks.includes(value.type)) {
-      networks.push(value.type)
-    }
+      if (!networkRuntimes.includes(value.runtime)) {
+        networkRuntimes.push(value.runtime)
+      }
 
-    else {
-      networks[value[network]] = 1;
-    }
-    console.log(networks)
-  });
-
-  //})
+      else {
+        networks[value.network[networks]] = 1;
+      }
+      console.log(networkRuntimes)
+    });
 
 
 
-
-
-
-
-  return networkRuntimes
+return networkRuntimes
 }
+
+
+
 function getPopularShows(shows, network, runtime) {
   let popularShows = []
 

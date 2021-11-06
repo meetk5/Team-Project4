@@ -9,22 +9,19 @@
         for (var i = 0; i < data.length; i++) {
           shows.push(data[i]);
         }
-        console.log(shows)
-        let display = d3.select("#sample-metadata2");
+       // console.log(shows)
+        let display = d3.select("#sample-metadata");
         display.html("");
-        // filter to get different boro's cuisines
-        // const twoCategories = { data: shows.map(({ network, name }) => ({ network, name })) };
-        // console.log("twoLabels", twoCategories)
-    
-        let networkSamples = data.filter(function (citation) {
-          return citation.name == network
+        
+        let networkSamples = shows.filter(function (citation) {
+          return citation.runtime == network
         });
         console.log(networkSamples)
         // let episodeSamples = networkSamples.filter(function (episodes) {
         //   return episodes.name == followers
         // });
         // console.log(episodeSamples)
-        let networkCounts = getcounts(networkSamples, "follower");
+        let networkCounts = getcounts(networkSamples, "name");
         console.log("networkCounts", networkCounts)
         console.log(Object.keys(networkCounts))
         console.log(Object.values(networkCounts));
@@ -59,72 +56,18 @@
           display.append("h5").text(`- ${b}`);
         });
     
-        // let dropDown = d3.select("#selDataset");
-        // network.forEach((c) => {
-        //   dropDown.append("option").text(c).property("value", c)
-        // });
-        // let dropDown2 = d3.select("#selDataset2");
-        // tvList.forEach((o) => {
-        //   dropDown2.append("option").text(o).property("value", o)
-        // })
+       
       })
     }
     
-    dropdown("55")
+   // dropdown("55")
     
     
-    // function dropdown2(network) {
-    //   d3.json("show_display.json").then((shows) => {
-    //     // //get samples info from json file
-    //     //console.log("data", data)
-    //     // let shows = [];
-    //     // for (var i = 0; i < data.length; i++) {
-    //     //   shows.push(data[i]);
-    //     // }
-    //     let display = d3.select("#sample-metadata2");
-    //     display.html("");
-    //     //console.log(data)
-    //     console.log(network)
-    //     console.log(shows)
-    //     let runTimeSamples = shows.filter(sampleobject => sampleobject.network == network);
-    //     // let runTimeSamples = shows.filter(function (runTime) {
-    //     //   return runTime.network == network
-    //     // });
-    //     console.log(runTimeSamples)
-    //     // let episodeSamples = networkSamples.filter(function (episodes) {
-    //     //   return episodes.name == followers
-    //     // });
-    //     // console.log(episodeSamples)
-    //     let runTimeCounts = getcounts(runTimeSamples, "name");
-    //     console.log("networkCounts", runTimeCounts)
-    //     console.log(Object.keys(runTimeCounts))
-    //     console.log(Object.values(runTimeCounts));
-    //     let runTimeSampleResults = Object.keys(runTimeCounts).map(f => ({ type: f, count: runTimeCounts[f] }))
-    //     console.log("runTimeResults", runTimeSampleResults)
-    //     // Sort the data by the most number of violations in each boro in descending (most to least)
-    //     let runTimeValues = Object.values(runTimeSampleResults).sort((a, b) => b.count - a.count);
-    //     console.log("runTimevalues", runTimeValues)
-    //     // Slice the first 5 objects
-    //     runTimeSlicedData = runTimeValues.slice(0, 5);
-    //     console.log("runtimeSlicedData", runTimeSlicedData)
-    //     runTimeDisplay = []
-    //     for (var s = 0; s < runTimeSlicedData.length; s++) {
-    //       runTimeDisplay.push(runTimeSlicedData[s].type);
-    //     }
-    //     console.log("runtimedisplay", runTimeDisplay)
-    //     //loop to get violations info into the top violations in each boro box
-    //     Object.entries(runTimeDisplay).forEach(([, b]) => {
-    //       display.append("h5").text(`- ${b}`);
-    //     });
-    //     // dropdown2("75")
     
-    //   })
-    // }
     //changes with dropdown changes
     function optionChanged(view) {
       dropdown(view);
-     // dropdown2(view)
-    
+     
     
     };
     
@@ -135,34 +78,9 @@
       // //  // see dropdown
       d3.json("show_display.json").then((data) => {
         console.log(data)
-        let shows = [];
-        for (var i = 0; i < data.length; i++) {
-          shows.push(Object.values(data)[i]);
-        }
-        console.log("shows", shows)
-        var obj = {};
-        shows.forEach(function (value) {
-          //console.log(value)
-          if (obj[value["network"]]) {
-            obj[value["network"]]++;
-          }
-          else {
-            obj[value["network"]] = 1;
-          }
-        })
-        console.log(obj)
-        console.log("ID#", shows)
-        const twoLabels = { data: shows.map(({ network, name }) => ({ network, name })) };
-        console.log("twoLabels", twoLabels)
-        let results = Object.keys(obj).map(e => ({ type: e, count: obj[e] }))
-        console.log("results", results)
-        network = []
-        for (var j = 0; j < results.length; j++) {
-          network.push(results[j].type);
-        }
-        console.log("network", network)
+        
         var tvShows = {};
-        shows.forEach(function (value) {
+        data.forEach(function (value) {
           //console.log(value)
           if (tvShows[value["runtime"]]) {
             tvShows[value["runtime"]]++;
@@ -172,7 +90,7 @@
           }
         })
         console.log(tvShows)
-        let tvResults = Object.keys(tvShows).map(e => ({ type: e, count: obj[e] }))
+        let tvResults = Object.keys(tvShows).map(e => ({ type: e, count: tvShows[e] }))
         console.log("tvResults", tvResults)
         tvList = []
         for (var j = 0; j < tvResults.length; j++) {
@@ -183,9 +101,9 @@
         // network.forEach((c) => {
         //   dropDown.append("option").text(c).property("value", c)
         // });
-        let dropDown2 = d3.select("#selDataset2");
+        let dropDown = d3.select("#selDataset");
         tvList.forEach((o) => {
-          dropDown2.append("option").text(o).property("value", o)
+          dropDown.append("option").text(o).property("value", o)
         })
       })
     }
