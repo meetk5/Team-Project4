@@ -4,7 +4,7 @@ console.log("I'm running")
 let showData;
 d3.json("show_display.json").then((shows) => {
   showData = shows;
-  let myRuntimes = getNetworkRuntimes(showData, "HBO")
+ // let myRuntimes = getNetworkRuntimes(showData, "HBO")
   // networks = showData.map(function (show) {
   //   return show.network;
   // });
@@ -53,7 +53,7 @@ d3.json("show_display.json").then((shows) => {
   tvList.forEach((o) => {
     dropDown2.append("option").text(o).property("value", o)
   })
-  let networkReduced = showData.map(({ network, name, followers }) => ({ network, name, followers }));
+  let networkReduced = showData.map(({ network, name, followers, runtime }) => ({ network, name, followers, runtime }));
   console.log(networkReduced)
   // var tvNames = {};
   // shows.forEach(function(value){
@@ -76,35 +76,52 @@ d3.json("show_display.json").then((shows) => {
   // console.log(tvNameResults)
 });
 function getNetworkRuntimes(shows, network) {
+  console.log(shows)
   let networkRuntimes = []
-  let networks = []
-  shows.forEach(function (value) {
-    //let variable= value.network
-    //console.log(variable)
-    //if (networkRuntimes)
-    // let networks = shows.filter(function (citation) {
-    //   return citation.runtime == network
-    // });
-    
-    //  for (var j = 0; j < networks.length; j++) {
-    //        networkRuntimes.push(networks[j].name);
-    //    }
-    if (!networks.includes(value.network)) {
-      networks.push(value.network)
-    }
-      if (!networkRuntimes.includes(value.runtime)) {
-        networkRuntimes.push(value.runtime)
+  let showsFilter = Object.keys(network);
+  console.log(showsFilter)
+  return shows.filter(networkshows =>{
+    return showsFilter.every(runtime =>{
+      if(!network[runtime].length) {
+        return true;
       }
-
-      else {
-        networks[value.network[networks]] = 1;
+      if(shows.network){
+        return network[runtime].includes(shows.network);
+      } else{
+      return network[runtime].some(filter => shows.some(v => v.network === filter));
       }
-      console.log(networkRuntimes)
     });
+   
+  });
+ // console.log(networkRuntimes)
+  // let networks = []
+  // shows.forEach(function (value) {
+  //   //let variable= value.network
+  //   //console.log(variable)
+  //   //if (networkRuntimes)
+  //   // let networks = shows.filter(function (citation) {
+  //   //   return citation.runtime == network
+  //   // });
+    
+  //   //  for (var j = 0; j < networks.length; j++) {
+  //   //        networkRuntimes.push(networks[j].name);
+  //   //    }
+  //   if (!networks.includes(value.network)) {
+  //     networks.push(value.network)
+  //   }
+  //     if (!networkRuntimes.includes(value.runtime)) {
+  //       networkRuntimes.push(value.runtime)
+  //     }
+
+  //     else {
+  //       networks[value.network[networks]] = 1;
+  //     }
+  //     console.log(networkRuntimes)
+  //   });
 
 
 
-return networkRuntimes
+//return networkRuntimes
 }
 
 
