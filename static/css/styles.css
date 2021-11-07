@@ -19,6 +19,10 @@ body {
 
 
 
+h1.vis {
+  text-align: center;
+}
+
 h3 {
     text-align: center;
 }
@@ -26,6 +30,11 @@ h3 {
 h4.landing {
     text-align: center;
     color: black;    
+}
+
+h4.team {
+  text-align: center;
+  color: black;    
 }
 
 
@@ -40,6 +49,10 @@ h6.landing {
   
 }
 
+h6.team {
+  text-align: center;
+  color: black;
+}
 
 
 
@@ -63,11 +76,32 @@ IMG.panel:hover {
     
 }
 
+IMG.team {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%; 
+  padding-top: 2%;
+  width: 150px;
+  height: 150px;
+  z-index: 2;
+  
+
+}
+
+img.arrow{
+  width:40px;
+  height:30px;
+  margin-left: 2%;
+}
+
 
 
 body.background {
     
-    background-color: #ffd943;
+    /* background-color: #ffd943; */
+    background-color: #eee455;
+    /* background-color: #fff570; */
     max-width: 100%;
     height: auto;
     z-index: -1;

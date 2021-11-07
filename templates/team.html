@@ -1,110 +1,169 @@
-   
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Violation Data</title>
-  <link rel="shortcut icon" type="image/jpg" href="../static/favicon3.png" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   <!--CSS Link-->
+   <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 
-  <!-- D3 Javascript Library -->
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Couch Vibes</title>
+    <link rel="shortcut icon" type="image/jpg" href="../static/images/tv-16.png"/>
+  </head>
 
-  <!-- Plotly Javascript Library -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-</head>
 
-<body>
 
-  <!-- Navbar  -->
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(156, 4, 4);">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="../static/favicon.svg" alt="" width="35">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/restaurantfinder">Restaurant Finder</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/borocuisines">Cuisines</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/violationdata">Violations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/othergraphs">Food Fortune</a>
-          </li>
+  <body class="background">
 
-        </ul>
+    <!----- Navbar ------->
 
-      </div>
-    </div>
-  </nav>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+              <img src="../static/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              Couch Vibes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="followers.html">For Creators</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="network.html">For Audience</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Visualizations</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="vis1.html">Visualization 1</a>
+                    <a class="dropdown-item" href="vis2.html">Visualization 2</a>
+                  
 
-  <div class="container">
-    <div class="row">
-      <!-- Boro Selection Dropdown -->
-      <div class="col-md-2">
-        <h5>Select Borough</h5>
-        <select id="selDataset" onchange="optionChanged(this.value)"></select>
-      </div>
-
-      <!-- Bar Graph Plot -->
-      <div class="col-md-10 col-sm-10">
-        <div id="bar"></div>
-      </div>
-    </div>
-    <br>
-
-    <!-- Violation Detail Table -->
-    <div class="row">
-      <div class="col-md-8 col-sm-12">
-        <table class="table table-striped align-middle table-bordered">
-          <thead>
-            <tr>
-              <th><b>Violation Codes</b></th>
-              <th><b>Violation Description</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Restaurant Details -->
-      <div id="restaurantdetails" class="col-md-4 col-sm-12"></div>
-    </div>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="team.html">Team</a>
+                    </li>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
   </div>
 
-  <script src="../static/js/violations.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
-    crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
-    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
-    crossorigin="anonymous"></script>
-</body>
 
+
+
+
+
+
+    <!-- Jumbotron Banner -->
+
+    <!-- <div class="jumbotron jumbotron-fluid" style="background-color: #14abe7; color: white; padding-top: 1px; padding-bottom: 2px; text-align: center;">
+      <div class="container">
+        <h1 class="display-4"><img src="../static/images/logo.png" alt="logo" width="70" > Couch Vibes</h1>
+        <p class="lead" style="text-align: center;">Predict a show's popularity</p>
+      </div>
+    </div> -->
+
+
+    <div class="container">
+
+
+      <div class= "row">
+        <div class="col-12 col-md-12 col-lg-12">
+
+          <h1>Our Team</h1>
+          <hr>
+
+        </div> <!--end column-->
+      </div> <!--end row-->
+
+
+
+        <div class= "row">
+
+        <div class="col-6 col-md-4 col-lg-4">
+
+          <!--Photo goes here-->
+          <img class="team" src="../static/images/emoticon-soso-256.png" alt = "Brian" >
+          <h4 class="team">Brian Johnson</h4>
+          <h6 class="team">Developer</h6>
+
+        </div> <!--end column-->
+
+        <div class="col-6 col-md-4 col-lg-4">
+
+          <!--Photo goes here-->
+          <img class="team" src="../static/images/emoticon-bad-256.png" alt = "Jay" >
+          <h4 class="team">Jay Dhruv</h4>
+          <h6 class="team">Developer</h6>
+
+        </div> <!--end column-->
+
+ 
+        <div class="col-6 col-md-4 col-lg-4">
+
+          <!--Photo goes here-->
+          <img class="team" src="../static/images/emoticon-good-256.png" alt = "Kate" >
+          <h4 class="team">Kate Yayla</h4>
+          <h6 class="team">Developer</h6>
+
+        </div> <!--end column-->       
+        
+      </div> <!--end row-->
+
+      <div class= "row" style="margin-top: 2%;">
+        <div class="col-6 col-md-6 col-lg-6">
+
+          <!--Photo goes here-->
+          <img class="team" src="../static/images/emoticon-fun-256.png" alt = "Meet" >
+          <h4 class="team">Meet Kaur</h4>
+          <h6 class="team">Developer</h6>
+
+        </div> <!--end column-->    
+
+        <div class="col-6 col-md-6 col-lg-6">
+
+          <!--Photo goes here-->
+          <img class="team" src="../static/images/emoticon-wow-256.png" alt = "Saleha" >
+          <h4 class="team">Saleha Ahmed</h4>
+          <h6 class="team">Developer</h6>
+
+        </div> <!--end column-->          
+
+
+      </div> <!--end row-->
+        
+      
+    
+    </div>   <!--end container-->
+
+    
+    <!-- Copyright Information -->
+    <a style="text-decoration: none;" href="https://github.com/meetk5/Team-Project4"><p class="copyright">© 2021 Couch Vibes</p></a>
+             
+               
+    <!-- JavaScript: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+
+
+    <!--Other Scripts-->
+    <script src="../static/js/slidervalues.js"></script>
+  </body>
 </html>
