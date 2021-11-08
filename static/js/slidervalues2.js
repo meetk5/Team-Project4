@@ -87,6 +87,45 @@ var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
 
+// Function code
+
+
+function findnetwork() {
+  d3.event.preventDefault();
+  var good = d3.select("#myGoodRange").property("value");
+  var fun = d3.select("#myFunRange").property("value");
+  var wow = d3.select("#myWowRange").property("value");
+  var sad = d3.select("#mySadRange").property("value");
+  var soso = d3.select("#mySosoRange").property("value");
+  var bad = d3.select("#myBadRange").property("value");
+  console.log(good);
+
+  var moodList = [good, fun, wow, sad, soso, bad];
+
+  d3.json("/get_your_recommendation", {
+      method: "POST",
+      body: JSON.stringify(
+          moodList
+      ),
+      headers: {
+          "Content-type": "application/json; charset=UTF-8"
+      }
+  }).then(function (moodresult, err) {
+      if (err) { throw err };
+      if (!moodresult) {
+          console.log("I wasn't able to get data from the Web API you selected.");
+          return;
+      }
+  })
+}
+
+
+
+
+
+
+
+
 function clearForm() {
   d3.select("#myGoodRange").html("")
   d3.select("#myGoodRange").html("")
