@@ -16,18 +16,19 @@ def network():
     print("rendering network page")
     return render_template("network.html")
 
-@app.route("/followers")
-def network():
-    print("rendering follwers page")
-    return render_template("followers.html")
-
 @app.route("/team")
-def network():
+def team():
     print("rendering team page")
     return render_template("team.html")
 
+@app.route("/followers")
+def followers():
+    print("rendering follwers page")
+    return render_template("followers.html")
+
+
 @app.route("/visualizations")
-def network():
+def visualizations():
     print("rendering visualizations page")
     return render_template("vis1.html")
 
