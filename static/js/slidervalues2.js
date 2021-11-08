@@ -31,6 +31,10 @@ slider_fun.oninput = function() {
 }
 
 
+var fun = d3.select("#myFunRange").property("value");
+console.log(fun);
+
+
 
 var slider_wow = document.getElementById("myWowRange");
 var output_wow = document.getElementById("outputWow");
@@ -40,6 +44,8 @@ slider_wow.oninput = function() {
   output_wow.innerHTML = this.value;
 }
 
+var wow = d3.select("#myWowRange").property("value");
+console.log(wow);
 
 
 var slider_sad = document.getElementById("mySadRange");
@@ -49,6 +55,9 @@ output_sad.innerHTML = slider_sad.value;
 slider_sad.oninput = function() {
   output_sad.innerHTML = this.value;
 }
+
+var sad = d3.select("#mySadRange").property("value");
+console.log(wow);
 
 
 
@@ -61,6 +70,10 @@ slider_soso.oninput = function() {
 }
 
 
+var soso = d3.select("#mySosoRange").property("value");
+console.log(soso);
+
+
 var slider_bad = document.getElementById("myBadRange");
 var output_bad = document.getElementById("outputBad");
 output_bad.innerHTML = slider_bad.value;
@@ -68,6 +81,10 @@ output_bad.innerHTML = slider_bad.value;
 slider_bad.oninput = function() {
   output_bad.innerHTML = this.value;
 }
+
+
+var bad = d3.select("#myBadRange").property("value");
+console.log(bad);
 
 
 function clearForm() {
