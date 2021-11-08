@@ -111,9 +111,16 @@
 
                 </div>
 
+                <div class="container">
+                    <!-- dropdown goes here -->
+                    <p style="text-align: center;"><strong>Runtime: </strong>%Dropdown Menu Here%</p>
+                </div>
+
             </div>
-            <form>
-                <div class="col-12 col-md-12 col-lg-6">
+            <!--end column-->
+
+            <div class="col-12 col-md-12 col-lg-6">
+                <form>
 
                     <div class="container" style="margin-right: 4%;">
 
@@ -128,7 +135,8 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value=50 class="slider" id="myGoodRange" onchange="myGoodRange(this.value)">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myGoodRange"
+                                        onchange="myGoodRange(this.value)">
                                     <p>Good: <span id="outputGood"></span></p>
                                 </div>
                             </div>
@@ -148,7 +156,8 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="myFunRange">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myFunRange"
+                                        onchange="myFunRange(this.value)">
                                     <p>Fun: <span id="outputFun"></span></p>
                                 </div>
                             </div>
@@ -169,7 +178,8 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="myWowRange">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myWowRange"
+                                        onchange="myWowRange(this.value)">
                                     <p>Wow: <span id="outputWow"></span></p>
                                 </div>
                             </div>
@@ -190,7 +200,8 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="mySadRange">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="mySadRange"
+                                        onchange="mySadRange(this.value)">
                                     <p>Sad: <span id="outputSad"></span></p>
                                 </div>
                             </div>
@@ -210,7 +221,8 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="mySosoRange">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="mySosoRange"
+                                        onchange="mySosoRange(this.value)">
                                     <p>So-So: <span id="outputSoso"></span></p>
                                 </div>
                             </div>
@@ -231,13 +243,17 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="myBadRange">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myBadRange"
+                                        onchange="myBadRange(this.value)">
                                     <p>Bad: <span id="outputBad"></span></p>
                                 </div>
                             </div>
 
                         </div>
                         <!--end row 6  end table-->
+
+
+
 
 
                         <div class="row">
@@ -250,38 +266,30 @@
                             <div class="col-lg-11">
                                 <!-- start slider column-->
 
-                                <p style="text-align: center;"><strong>Runtime: </strong>%Dropdown Menu Here%</p>
-
-                            </div>
-
-                        </div>
-                        <!--end row 7 -->
-
-
-                        <div class="row">
-                            <!-- start row 8-->
-
-                            <div class="col-lg-1">
-                                <!-- leave this column empty-->
-                            </div>
-
-                            <div class="col-lg-11">
-                                <!-- start slider column-->
-
-                                <div class="d-flex justify-content-center">
-                                    <input class="btn btn-primary btn-lg" id="submitbtn"
-                                        style="background-color: #14abe7; margin-top: 3%;" type="submit"
-                                        value="Suggest Network">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <input class="btn btn-primary btn-lg"
+                                                style="background-color: #14abe7; margin-top: 3%;" type="submit"
+                                                value="Suggest Network" onclick="findnetwork()" />
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <input class="btn btn-primary btn-lg"
+                                                style="background-color: #14abe7; margin-top: 3%;" type="reset"
+                                                value="Reset Values" onclick="clearForm()"/>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!--end button row-->
+
+
 
                             </div>
 
                         </div>
-                        <!--end row 8  end table-->
-
-
-
-
+                        <!--end row 7  end table-->
 
 
 
@@ -289,13 +297,14 @@
                     </div>
                     <!--end emoji slider container-->
 
+                </form>
+                <!--end form-->
 
 
 
 
-                </div>
-                <!--end container-->
-            </form>
+            </div>
+            <!--end container fluid-->
 
 
             <!-- Copyright Information -->

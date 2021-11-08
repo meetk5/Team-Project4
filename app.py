@@ -18,19 +18,29 @@ def network():
 
 @app.route("/get_your_recommendation", methods=["POST"])
 def get_your_recommendation():
-    mood_list = request.get_json()
-    print(mood_list)
+
+    print("starting recommendation page")
+    feature_list = request.get_json()
+    print(f"Features: {feature_list}")
+
+    moodlist = []
+    for mood in feature_list:
+        moodlist.append(mood)
+    
+    print(f"Moods: {moodlist}")
 
     filename = "network_predictor.h5"
     network_predictor_model = joblib.load(filename)
+    print(network_predictor_model)
 
     le = LabelEncoder()
 
-    result = network_predictor_model.predict([mood_list])
+    result = network_predictor_model.predict([moodlist])
+    print(f"Result: {result}")
 
     suggested_network = le.inverse_transform(result)
 
-    print(suggested_network)
+    print(f"Network: {suggested_network}")
 
     return jsonify(suggested_network[0])
 
@@ -45,5 +55,4 @@ def get_your_recommendation():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(debug=True) 
