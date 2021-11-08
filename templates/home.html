@@ -10,6 +10,9 @@
    <!--CSS Link-->
    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 
+   <!--D3-->
+   <script src="https://d3js.org/d3.v7.min.js"></script>
+
     <title>Couch Vibes</title>
     <link rel="shortcut icon" type="image/jpg" href="../static/images/tv-16.png"/>
   </head>
@@ -39,7 +42,7 @@
                   
                   </a>
                 </li>
-                  <a class="nav-link" href="followers.html">For Creators</a>
+                  <a class="nav-link active" href="followers.html">For Creators</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="network.html">For Audience</a>
@@ -96,14 +99,18 @@
           </div>
 
 
-          <div class="container">
+          <div class="container", id="followerdetails">
             <h3>Expected Followers: %45613%</h3>
             <h3>Popularity: %Successful%</h3>
           </div>
 
         </div>
 
+        
+
         <div class="col-12 col-md-12 col-lg-6">
+
+          <form>
 
           <div class="container" style="margin-right: 4%;">
 
@@ -115,7 +122,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myGoodRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myGoodRange" onchange="myGoodRange(this.value)">
                   <p>Good: <span id="outputGood"></span></p>
                 </div>              
               </div> 
@@ -131,7 +138,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myFunRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myFunRange" onchange="myFunRange(this.value)">
                   <p>Fun: <span id="outputFun"></span></p>
                 </div>              
               </div> 
@@ -148,7 +155,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myWowRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myWowRange" onchange="myWowRange(this.value)">
                   <p>Wow: <span id="outputWow"></span></p>
                 </div>              
               </div> 
@@ -165,7 +172,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="mySadRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="mySadRange" onchange="mySadRange(this.value)">
                   <p>Sad: <span id="outputSad"></span></p>
                 </div>              
               </div> 
@@ -181,7 +188,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="mySosoRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="mySosoRange" onchange="mySosoRange(this.value)">
                   <p>So-So: <span id="outputSoso"></span></p>
                 </div>              
               </div> 
@@ -198,7 +205,7 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myBadRange">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myBadRange" onchange="myBadRange(this.value)">
                   <p>Bad: <span id="outputBad"></span></p>
                 </div>              
               </div> 
@@ -206,7 +213,7 @@
             </div> <!--end row 6  end table-->
 
 
-            <div class="row">  <!-- start row 6-->
+            <div class="row">  <!-- start row 7-->
 
               <div class="col-lg-1">  
                 <!-- leave this column empty-->
@@ -214,13 +221,22 @@
 
               <div class="col-lg-11">  <!-- start slider column-->
                
-                <div class="d-flex justify-content-center">
-                  <input class="btn btn-primary btn-lg" style="background-color: #14abe7" type="submit" value="Predict Success">
-                </div>
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                    <div class="d-flex justify-content-center">
+                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="submit" value="Predict Success">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="d-flex justify-content-center">
+                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="submit" value="  Reset Values  ">
+                    </div>                   
+                  </div>
+                </div> <!--end button row--> 
                           
               </div> 
 
-            </div> <!--end row 6  end table-->
+            </div> <!--end row 7  end table-->
 
 
 
@@ -228,6 +244,8 @@
          
 
           </div>  <!--end emoji slider container-->
+
+          </form> <!--end form-->
 
 
 
