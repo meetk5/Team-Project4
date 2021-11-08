@@ -47,23 +47,40 @@ d3.json("show_display.json").then((shows) => {
                 return citation.network == network
             });
             console.log(networkSamples)
-            function something () { 
-                
-                    let networkFollowers = networkSamples.filter(function (value) {
-                        return value.followers == network
-                    });
-                    console.log(networkFollowers)
 
-            }
-
-           console.log(something)
             // let episodeSamples = networkSamples.filter(function (episodes) {
             //   return episodes.name == followers
             // });
             // console.log(episodeSamples)
+            let filter = {followers: "4618578"}
+           
 
             let networkReduced = shows.map(({ network, name, followers, runtime }) => ({ network, name, followers, runtime }));
             console.log(networkReduced)
+
+            results = networkReduced.filter(function(item){
+                for (var key in filter){
+                    if (item[key] === undefined || item[key] != filter[key])
+                    return false;
+                }
+                return true;
+            });
+            console.log(results)
+
+           
+            var showNames = ["Game of Thrones", "The Leftovers", "Sex and the City", "Silicon Valley", "The Night Of"];
+            var runtimeNumbers = ["55", "60", "30"];
+            
+            function filters (networks, showNames, runtime) {
+              return networks.filter(function (network) {
+                return showNames.indexOf(network.name) !== -1 && 
+                  runtime.indexOf(network.runtime) !== -1;        // check if the car's model is allowed
+              });
+            }
+            
+            var filtered = filters(networkReduced, showNames, runtimeNumbers);
+            console.log(filtered);
+            
             let networkCounts = getcounts(networkSamples, "name");
             console.log("networkCounts", networkCounts)
             let networkNames = Object.keys(networkCounts)
@@ -75,78 +92,13 @@ d3.json("show_display.json").then((shows) => {
                 display.append("h5").text(` -  ${b}`);
             });
         })
-        return something 
+        
     }
     runtimeDropdownChange("HBO")
-    // networks =[]
-    // var obj = {};
-    // showData.forEach(function (value) {
-    //     if (!networks.includes(value.type)) {
-    //         networks.push(value.type)
-    //  }
-    //console.log(value)
-    // if (obj[value["network"]]) {
-    //   obj[value["network"]]++;
-    // }
-    // else {
-    //   obj[value["network"]] = 1;
-    // }
-    //  })
-    // let results = Object.keys(obj).map(e => ({ type: e, count: obj[e] }))
-    // console.log("results", results)
-    // networks = []
-    // for (var j = 0; j < results.length; j++) {
-    //   networks.push(results[j].type);
-    // }
-    // var tvShows = {};
-    // showData.forEach(function (value) {
-    //     //console.log(value)
-    //     if (tvShows[value["runtime"]]) {
-    //         tvShows[value["runtime"]]++;
-    //     }
-    //     else {
-    //         tvShows[value["runtime"]] = 1;
-    //     }
-    // })
-    // console.log(tvShows)
-    // let tvResults = Object.keys(tvShows).map(e => ({ type: e, count: obj[e] }))
-    // console.log("tvResults", tvResults)
-    // tvList = []
-    // for (var j = 0; j < tvResults.length; j++) {
-    //     tvList.push(tvResults[j].type);
-    // }
-    // let dropDown = d3.select("#selDataset");
-    // networks.forEach((c) => {
-    //     dropDown.append("option").text(c).property("value", c)
-    // });
-    // let dropDown2 = d3.select("#selDataset2");
-    // tvList.forEach((o) => {
-    //     dropDown2.append("option").text(o).property("value", o)
-    // })
-    // let networkReduced = showData.map(({ network, name, followers, runtime }) => ({ network, name, followers, runtime }));
-    // console.log(networkReduced)
-    // var tvNames = {};
-    // shows.forEach(function(value){
-    // //console.log(value)
-    // //loop to find same cuisines, if not same add to object if same add to count
-    // if (tvNames[value["name"]]) {
-    //     tvNames[value["name"]]++;
-    //   }
-    //   else {
-    //     tvNames[value["name"]] = 1;
-    //   }
-    //   console.log(tvNames) 
-    //   let tvResults = Object.keys(tvNames).map(e=>({names:e, count:obj[e]}))
-    //   tvNameResults=[]
-    //   //find all the different boros and put it in a list
-    //   for (var j = 0; j < tvResults.length; j++) {
-    //     tvNameResults.push(tvResults[j].names);
-    // }
 
-    // console.log(tvNameResults)
-    //});
+    
     // function getNetworkRuntimes(shows, network) {
-    //     console.log(shows)
+    //     //console.log(shows)
     //     let networkRuntimes = []
     //     let showsFilter = Object.keys(network);
     //     console.log(showsFilter)
