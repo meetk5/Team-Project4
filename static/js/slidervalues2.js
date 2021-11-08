@@ -1,3 +1,12 @@
+var form = d3.select("form");
+
+form.on("#submitbtn", findnetwork);
+
+form.on("#reset", clearform);
+
+
+
+
 var slider_good = document.getElementById("myGoodRange");
 var output_good = document.getElementById("outputGood");
 output_good.innerHTML = slider_good.value;
@@ -5,6 +14,10 @@ output_good.innerHTML = slider_good.value;
 slider_good.oninput = function() {
   output_good.innerHTML = this.value;
 }
+
+
+var good = d3.select("#myGoodRange").property("value");
+console.log(good);
 
 
 
@@ -56,3 +69,11 @@ slider_bad.oninput = function() {
   output_bad.innerHTML = this.value;
 }
 
+
+function clearForm() {
+  d3.select("#myGoodRange").html("")
+  d3.select("#myGoodRange").html("")
+  d3.select("#myGoodRange").html("")
+  d3.select("#myGoodRange").html("")
+  d3.select("#myGoodRange").html("")
+}
