@@ -3,7 +3,7 @@
 var form = d3.select("form");
 
 // Create fragrance
-// form.on("submit", sliders);
+ form.on("submit", slider);
 
 form.on("reset", clearForm);
 
@@ -121,7 +121,64 @@ function getcounts(dataArray, myParam) {
 }
 //}
 init()
-//------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------
+var slider_good = document.getElementById("myGoodRange");
+var output_good = document.getElementById("outputGood");
+output_good.innerHTML = slider_good.value;
+
+slider_good.oninput = function() {
+  output_good.innerHTML = this.value;
+}
+
+
+
+
+var slider_fun = document.getElementById("myFunRange");
+var output_fun = document.getElementById("outputFun");
+output_fun.innerHTML = slider_fun.value;
+
+slider_fun.oninput = function() {
+  output_fun.innerHTML = this.value;
+}
+
+
+
+var slider_wow = document.getElementById("myWowRange");
+var output_wow = document.getElementById("outputWow");
+output_wow.innerHTML = slider_wow.value;
+
+slider_wow.oninput = function() {
+  output_wow.innerHTML = this.value;
+}
+
+
+
+var slider_sad = document.getElementById("mySadRange");
+var output_sad = document.getElementById("outputSad");
+output_sad.innerHTML = slider_sad.value;
+
+slider_sad.oninput = function() {
+  output_sad.innerHTML = this.value;
+}
+
+
+
+var slider_soso = document.getElementById("mySosoRange");
+var output_soso = document.getElementById("outputSoso");
+output_soso.innerHTML = slider_soso.value;
+
+slider_soso.oninput = function() {
+  output_soso.innerHTML = this.value;
+}
+
+
+var slider_bad = document.getElementById("myBadRange");
+var output_bad = document.getElementById("outputBad");
+output_bad.innerHTML = slider_bad.value;
+
+slider_bad.oninput = function() {
+  output_bad.innerHTML = this.value;
+}
 function slider() {
     d3.event.preventDefault();
     var goodRange = d3.select("#myGoodRange").property("value");
@@ -131,49 +188,49 @@ function slider() {
     var sosoRange = d3.select("#mySosoRange").property("value");
     var badRange = d3.select("#myBadRange").property("value");
 
-    var moodNumber = []
-    for (i = 0; i < goodRange; i++) {
-        var goodRangeID = "#goodRange" + i;
-        console.log(goodRangeID);
-        var goodRangeFeature = "good_range_" + d3.select(goodRangeID).node().value;
-        console.log(goodRangeFeature);
-        moodNumber.push(goodRangeFeature);
-    }
-    for (i = 0; i < funRange; i++) {
-        var funRangeID = "#funRange" + i;
-        console.log(funRangeID);
-        var funRangeFeature = "fun_range_" + d3.select(funRangeID).node().value;
-        console.log(funRangeFeature);
-        moodNumber.push(funRangeFeature);
-    }
-    for (i = 0; i < wowRange; i++) {
-        var wowRangeID = "#wowRange" + i;
-        console.log(wowRangeID);
-        var wowRangeFeature = "wow_range_" + d3.select(wowRangeID).node().value;
-        console.log(wowRangeFeature);
-        moodNumber.push(wowRangeFeature);
-    }
-    for (i = 0; i < sadRange; i++) {
-        var sadRangeID = "#sadRange" + i;
-        console.log(sadRangeID);
-        var sadRangeFeature = "sad_range_" + d3.select(sadRangeID).node().value;
-        console.log(sadRangeFeature);
-        moodNumber.push(sadRangeFeature);
-    }
-    for (i = 0; i < sosoRange; i++) {
-        var sosoRangeID = "#sosoRange" + i;
-        console.log(sosoRangeID);
-        var sosoRangeFeature = "soso_range_" + d3.select(sosoRangeID).node().value;
-        console.log(sosoRangeFeature);
-        moodNumber.push(sosoRangeFeature);
-    }
-    for (i = 0; i < badRange; i++) {
-        var badRangeID = "#badRange" + i;
-        console.log(badRangeID);
-        var badRangeFeature = "bad_range_" + d3.select(badRangeID).node().value;
-        console.log(badRangeFeature);
-        moodNumber.push(badRangeFeature);
-    }
+    var moodNumber = [goodRange, funRange, wowRange, sadRange, sosoRange,badRange]
+    // for (i = 0; i < goodRange; i++) {
+    //     var goodRangeID = "#goodRange" + i;
+    //     console.log(goodRangeID);
+    //     var goodRangeFeature = "good_range_" + d3.select(goodRangeID).node().value;
+    //     console.log(goodRangeFeature);
+    //     moodNumber.push(goodRangeFeature);
+    // }
+    // for (i = 0; i < funRange; i++) {
+    //     var funRangeID = "#funRange" + i;
+    //     console.log(funRangeID);
+    //     var funRangeFeature = "fun_range_" + d3.select(funRangeID).node().value;
+    //     console.log(funRangeFeature);
+    //     moodNumber.push(funRangeFeature);
+    // }
+    // for (i = 0; i < wowRange; i++) {
+    //     var wowRangeID = "#wowRange" + i;
+    //     console.log(wowRangeID);
+    //     var wowRangeFeature = "wow_range_" + d3.select(wowRangeID).node().value;
+    //     console.log(wowRangeFeature);
+    //     moodNumber.push(wowRangeFeature);
+    // }
+    // for (i = 0; i < sadRange; i++) {
+    //     var sadRangeID = "#sadRange" + i;
+    //     console.log(sadRangeID);
+    //     var sadRangeFeature = "sad_range_" + d3.select(sadRangeID).node().value;
+    //     console.log(sadRangeFeature);
+    //     moodNumber.push(sadRangeFeature);
+    // }
+    // for (i = 0; i < sosoRange; i++) {
+    //     var sosoRangeID = "#sosoRange" + i;
+    //     console.log(sosoRangeID);
+    //     var sosoRangeFeature = "soso_range_" + d3.select(sosoRangeID).node().value;
+    //     console.log(sosoRangeFeature);
+    //     moodNumber.push(sosoRangeFeature);
+    // }
+    // for (i = 0; i < badRange; i++) {
+    //     var badRangeID = "#badRange" + i;
+    //     console.log(badRangeID);
+    //     var badRangeFeature = "bad_range_" + d3.select(badRangeID).node().value;
+    //     console.log(badRangeFeature);
+    //     moodNumber.push(badRangeFeature);
+    // }
     d3.json("show_display.json", {
         method: "POST",
         body: JSON.stringify(
