@@ -108,6 +108,19 @@ body.background {
     
 }
 
+
+body.landing {
+    
+  /* background-color: #ffd943; */
+  background-color: #eee455;
+  /* background-color: #fff570; */
+  background-image: url("../../static/images/landingbackground2.jpg");
+  max-width: 100%;
+  height: auto;
+  z-index: -1;
+  
+}
+
 p.copyright {
     color: grey;
     text-align: center;
@@ -164,6 +177,18 @@ img.emoji {
   height: 50px;
   width: 50px;
   margin-right: 2%;
+  
+}
+
+
+img.landing {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%; 
+  padding-top: 2%;
 
 }
 

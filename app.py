@@ -31,6 +31,34 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/followers")
+def followers():
+    return render_template("followers.html")
+
+
+@app.route("/network")
+def othergraphs():
+    return render_template("network.html")
+
+@app.route("/vis1")
+def vis():
+    print("rendering visualizations")
+    # Return template and data
+    return render_template("vis1.html")
+
+
+@app.route("/vis2")
+def vis2():
+    print("rendering visualizations")
+    # Return template and data
+    return render_template("vis2.html")
+
+
+@app.route("/team")
+def team():
+    print("rendering team")
+    # Return template and data
+    return render_template("team.html")
 
 
 
