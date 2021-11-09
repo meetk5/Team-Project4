@@ -1,6 +1,6 @@
 var form = d3.select("form");
 
-form.on("#submitbtn", findnetwork);
+form.on(type="#submit", findnetwork);
 
 form.on(type="reset", clearForm);
 

@@ -1,9 +1,5 @@
 
 
-body {
-
-    background-color: white;
-}
 
 
 
@@ -96,8 +92,8 @@ img.arrow{
 
 body.background {
     
-    /* background-color: #ffd943; */
-    background-color: #eee455;
+    background-color: #ffd943;
+    /* background-color: #eee455; */
     /* background-color: #fff570; */
     max-width: 100%;
     height: auto;
@@ -108,10 +104,10 @@ body.background {
 
 body.landing {
     
-  /* background-color: #ffd943; */
-  background-color: #eee455;
+  background-color: #ffd943;
+  /* background-color: #eee455; */
   /* background-color: #fff570; */
-  background-image: url("/images/landingbackground2.jpg");
+  background-image: url("../images/landingbackground3.jpg");
   max-width: 100%;
   height: auto;
   z-index: -1;
@@ -122,7 +118,7 @@ p.copyright {
     color: grey;
     text-align: center;
     vertical-align: baseline;
-    margin-top: 3%;
+    margin-top: 10%;
     
 }
 
@@ -194,6 +190,9 @@ IMG.landing:hover {
     
 }
 
+h4.landing:hover{
+  color: rgba(29, 28, 28, 0.719);
+}
 
 .center {
   margin: 0;
