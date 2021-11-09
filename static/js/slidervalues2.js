@@ -2,7 +2,7 @@ var form = d3.select("form");
 
 form.on("#submitbtn", findnetwork);
 
-form.on("#reset", clearform);
+form.on(type="reset", clearForm);
 
 
 
@@ -128,8 +128,15 @@ function findnetwork() {
 
 function clearForm() {
   d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
+  d3.select("#outputGood").html("50")
+  d3.select("#myFunRange").html("")
+  d3.select("#outputFun").html("50")
+  d3.select("#myWowRange").html("")
+  d3.select("#outputWow").html("50")
+  d3.select("#mySosoRange").html("")
+  d3.select("#outputSoso").html("50")
+  d3.select("#mySadRange").html("")
+  d3.select("#outputSad").html("50")
+  d3.select("#myBadRange").html("")
+  d3.select("#outputBad").html("50")
 }

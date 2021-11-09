@@ -11,7 +11,7 @@
    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 
    <!--D3-->
-   <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <title>Couch Vibes</title>
     <link rel="shortcut icon" type="image/jpg" href="../static/images/tv-16.png"/>
@@ -224,12 +224,12 @@
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <div class="d-flex justify-content-center">
-                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="submit" value="Predict Success">
+                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="submit" onclick="showPredict()" value="Predict Success">
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="d-flex justify-content-center">
-                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="submit" value="  Reset Values  ">
+                      <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;" type="reset" onclick="clearForm()" value="  Reset Values  ">
                     </div>                   
                   </div>
                 </div> <!--end button row--> 

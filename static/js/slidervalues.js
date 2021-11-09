@@ -1,9 +1,9 @@
 
 var form = d3.select("form");
 
-form.on("#submitbtn", findnetwork);
+form.on("#submitbtn", showPredict);
 
-form.on("#reset", clearform);
+form.on("#reset", clearForm);
 
 
 
@@ -88,10 +88,48 @@ var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
 
+
+function showPredict() {
+  d3.event.preventDefault();
+  var good = d3.select("#myGoodRange").property("value");
+  var fun = d3.select("#myFunRange").property("value");
+  var wow = d3.select("#myWowRange").property("value");
+  var sad = d3.select("#mySadRange").property("value");
+  var soso = d3.select("#mySosoRange").property("value");
+  var bad = d3.select("#myBadRange").property("value");
+  console.log(good);
+
+  var moodList = [good, fun, wow, sad, soso, bad];
+
+  d3.json("/get_your_recommendation", {
+      method: "POST",
+      body: JSON.stringify(
+          moodList
+      ),
+      headers: {
+          "Content-type": "application/json; charset=UTF-8"
+      }
+  }).then(function (moodresult, err) {
+      if (err) { throw err };
+      if (!moodresult) {
+          console.log("I wasn't able to get data from the Web API you selected.");
+          return;
+      }
+  })
+}
+
+
 function clearForm() {
   d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
-  d3.select("#myGoodRange").html("")
+  d3.select("#outputGood").html("50")
+  d3.select("#myFunRange").html("")
+  d3.select("#outputFun").html("50")
+  d3.select("#myWowRange").html("")
+  d3.select("#outputWow").html("50")
+  d3.select("#mySosoRange").html("")
+  d3.select("#outputSoso").html("50")
+  d3.select("#mySadRange").html("")
+  d3.select("#outputSad").html("50")
+  d3.select("#myBadRange").html("")
+  d3.select("#outputBad").html("50")
 }

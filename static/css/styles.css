@@ -114,7 +114,7 @@ body.landing {
   /* background-color: #ffd943; */
   background-color: #eee455;
   /* background-color: #fff570; */
-  background-image: url("../../static/images/landingbackground2.jpg");
+  background-image: url("/images/landingbackground2.jpg");
   max-width: 100%;
   height: auto;
   z-index: -1;
