@@ -21,8 +21,6 @@
 
 
 
-
-
 <body class="background">
 
     <!----- Navbar ------->
@@ -50,12 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="network.html">For Audience</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Visualizations</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="vis1.html">Visualization 1</a>
-                                <a class="dropdown-item" href="vis2.html">Visualization 2</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vis.html">Visuallizations</a>
+                        </li>
 
 
                         <li class="nav-item">
@@ -68,13 +63,6 @@
     </div>
     </nav>
     </div>
-
-
-
-
-
-
-
 
 
     <!-- Jumbotron Banner -->
@@ -107,7 +95,7 @@
 
 
                 <div class="container">
-                    <h3>Network: %ABC%</h3>
+                    <h3 id="network">Network: %ABC%</h3>
 
                 </div>
 
@@ -271,14 +259,14 @@
                                         <div class="d-flex justify-content-center">
                                             <input class="btn btn-primary btn-lg"
                                                 style="background-color: #14abe7; margin-top: 3%;" type="submit"
-                                                value="Suggest Network" onclick="findnetwork()" />
+                                                onclick="findnetwork()" value="Suggest Network">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <div class="d-flex justify-content-center">
                                             <input class="btn btn-primary btn-lg"
                                                 style="background-color: #14abe7; margin-top: 3%;" type="reset"
-                                                value="Reset Values" onclick="clearForm()"/>
+                                                onclick="clearForm()" value="  Reset Values  ">
                                         </div>
                                     </div>
                                 </div>
@@ -322,6 +310,5 @@
 
             <!--Other Scripts-->
             <script src="../static/js/network_predictor.js"></script>
+            <!-- <script src="../static/js/network_predictor.js"></script> -->
 </body>
-
-</html>
