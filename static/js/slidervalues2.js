@@ -139,4 +139,5 @@ function clearForm() {
   d3.select("#outputSad").html("50")
   d3.select("#myBadRange").html("")
   d3.select("#outputBad").html("50")
+  document.getElementById("network").innerHTML=""
 }

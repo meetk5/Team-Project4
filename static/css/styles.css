@@ -71,10 +71,7 @@ IMG.panel {
 
 }
 
-IMG.panel:hover {
-  transform: scale(1.2);
-    
-}
+
 
 IMG.team {
   display: block;
@@ -180,7 +177,7 @@ img.emoji {
   
 }
 
-
+/* ------Landing Page Icons/Text------- */
 img.landing {
   height: 100px;
   width: 100px;
@@ -190,6 +187,11 @@ img.landing {
   margin-bottom: 2%; 
   padding-top: 2%;
 
+}
+
+IMG.landing:hover {
+  transform: scale(1.2);
+    
 }
 
 
