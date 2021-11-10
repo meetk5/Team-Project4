@@ -1,21 +1,3 @@
-// var form = document.getElementById("myForm");
-// function handleForm(event) { event.preventDefault(); } 
-// form.addEventListener('submit', findnetwork);
-
-// var testbutton = document.getElementById("#testbutton");
-// testbutton.addEventListener('click', findnetwork);
-
-
-// var form = d3.select("form");
-// console.log(form);
-// form.on("submit", findnetwork);
-// form.on(type="reset", clearForm);
-
-// var form = d3.select("form");
-// form.on("submit", findnetwork);
-// form.on("reset", clearForm);
-
-// Good Mood input
 var slider_good = document.getElementById("myGoodRange");
 var output_good = document.getElementById("outputGood");
 output_good.innerHTML = slider_good.value;
@@ -91,14 +73,10 @@ var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
 var submitnetwork = document.getElementById("submitbtn");
-submitnetwork.addEventListener('click', findnetwork);
+submitnetwork.addEventListener('click', show_predict);
 
-
-
-
-// Network function code
-function findnetwork() {
-    console.log("Network function running")
+function show_predict() {
+    console.log("Follower function running")
     var good = d3.select("#myGoodRange").property("value");
     var fun = d3.select("#myFunRange").property("value");
     var wow = d3.select("#myWowRange").property("value");
@@ -109,7 +87,7 @@ function findnetwork() {
 
     var moodList = [good, fun, wow, sad, soso, bad];
 
-    d3.json("/get_your_recommendation", {
+    d3.json("/show_predict", {
         method: "POST",
         body: JSON.stringify(
             moodList
@@ -117,32 +95,36 @@ function findnetwork() {
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
-    }).then(function (moodresult, err) {
+    }).then(function (moodresult1, err) {
         console.log("Running then function")
         console.log(err)
-        console.log(moodresult)
+        console.log(moodresult1)
         if (err) { throw err };
-        if (!moodresult) {
+        if (!moodresult1) {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
-        d3.select("#network").text(moodresult)
+        d3.select("#network").text(moodresult1)
     })
 }
 
+
+var resetnetwork = document.getElementById("resetbtn");
+resetnetwork.addEventListener('click', clearForm);
+
 // Reset Button clearForm function code
 function clearForm() {
-    document.getElementById('myGoodRange').value = 50;
+    document.getElementById("myGoodRange").innerHTML = ""
     d3.select("#outputGood").html("50")
-    document.getElementById('myFunRange').value = 50;
+    d3.select("#myFunRange").html("")
     d3.select("#outputFun").html("50")
-    document.getElementById('myWowRange').value = 50;
+    d3.select("#myWowRange").html("")
     d3.select("#outputWow").html("50")
-    document.getElementById('mySosoRange').value = 50;
+    d3.select("#mySosoRange").html("")
     d3.select("#outputSoso").html("50")
-    document.getElementById('mySadRange').value = 50;
+    d3.select("#mySadRange").html("")
     d3.select("#outputSad").html("50")
-    document.getElementById('myBadRange').value = 50;
+    d3.select("#myBadRange").html("")
     d3.select("#outputBad").html("50")
     document.getElementById("network").innerHTML = ""
 }
