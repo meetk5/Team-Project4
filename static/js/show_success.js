@@ -1,3 +1,4 @@
+// Good Mood Input
 var slider_good = document.getElementById("myGoodRange");
 var output_good = document.getElementById("outputGood");
 output_good.innerHTML = slider_good.value;
@@ -72,8 +73,10 @@ slider_bad.oninput = function () {
 var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
-var submitnetwork = document.getElementById("submitbtn");
-submitnetwork.addEventListener('click', show_predict);
+// On click Event
+
+var submitshow = document.getElementById("submitbtn");
+submitshow.addEventListener('click', show_predict);
 
 function show_predict() {
     console.log("Follower function running")
@@ -104,27 +107,29 @@ function show_predict() {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
-        d3.select("#network").text(moodresult1)
+        d3.select("#followers").text(moodresult1)
     })
 }
 
 
-var resetnetwork = document.getElementById("resetbtn");
-resetnetwork.addEventListener('click', clearForm);
+var resetshow = document.getElementById("resetbtn");
+resetshow.addEventListener('click', clearForm);
 
 // Reset Button clearForm function code
+
 function clearForm() {
-    document.getElementById("myGoodRange").innerHTML = ""
-    d3.select("#outputGood").html("50")
-    d3.select("#myFunRange").html("")
-    d3.select("#outputFun").html("50")
-    d3.select("#myWowRange").html("")
-    d3.select("#outputWow").html("50")
-    d3.select("#mySosoRange").html("")
-    d3.select("#outputSoso").html("50")
-    d3.select("#mySadRange").html("")
-    d3.select("#outputSad").html("50")
-    d3.select("#myBadRange").html("")
-    d3.select("#outputBad").html("50")
-    document.getElementById("network").innerHTML = ""
+  document.getElementById('myGoodRange').value = 50;
+  d3.select("#outputGood").html("50")
+  document.getElementById('myFunRange').value = 50;
+  d3.select("#outputFun").html("50")
+  document.getElementById('myWowRange').value = 50;
+  d3.select("#outputWow").html("50")
+  document.getElementById('mySosoRange').value = 50;
+  d3.select("#outputSoso").html("50")
+  document.getElementById('mySadRange').value = 50;
+  d3.select("#outputSad").html("50")
+  document.getElementById('myBadRange').value = 50;
+  d3.select("#outputBad").html("50")
+  document.getElementById("followers").innerHTML=""
+  document.getElementById("success").innerHTML=""
 }

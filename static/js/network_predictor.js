@@ -1,20 +1,3 @@
-// var form = document.getElementById("myForm");
-// function handleForm(event) { event.preventDefault(); } 
-// form.addEventListener('submit', findnetwork);
-
-// var testbutton = document.getElementById("#testbutton");
-// testbutton.addEventListener('click', findnetwork);
-
-
-// var form = d3.select("form");
-// console.log(form);
-// form.on("submit", findnetwork);
-// form.on(type="reset", clearForm);
-
-// var form = d3.select("form");
-// form.on("submit", findnetwork);
-// form.on("reset", clearForm);
-
 // Good Mood input
 var slider_good = document.getElementById("myGoodRange");
 var output_good = document.getElementById("outputGood");
@@ -90,10 +73,10 @@ slider_bad.oninput = function () {
 var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
+
+// Submit On Click Event
 var submitnetwork = document.getElementById("submitbtn");
 submitnetwork.addEventListener('click', findnetwork);
-
-
 
 
 // Network function code

@@ -42,10 +42,10 @@ def followers():
     print("rendering follwers page")
     return render_template("followers.html")
 
-@app.route("/visualizations")
+@app.route("/vis")
 def visualizations():
     print("rendering visualizations page")
-    return render_template("vis1.html")
+    return render_template("vis.html")
 
 
 @app.route("/get_your_recommendation", methods=["POST"])
@@ -67,7 +67,7 @@ def get_your_recommendation():
 
     filename = "network_predictor.h5"
     network_predictor_model = joblib.load(filename)
-    print(network_predictor_model)
+    print(f"Model: {network_predictor_model}")
 
     le = LabelEncoder()
 
@@ -87,17 +87,17 @@ def get_your_recommendation():
 def show_predict():
 
     features_list = request.get_json()
-    print(features_list)
+    print(f"Features: {features_list}")
     
     model = joblib.load("showsuccess_predictor.h5")
-    print(model)
+    print(f"Model: {model}")
     
     new_list = []
     for feature in features_list:
         new_list.append(int(feature)/100)
     
     prediction = model.predict([new_list])
-    print(prediction)
+    print(f"Predicted Followers: {prediction}")
     
     if (prediction >0) and (prediction<= 1000000):
         return_string = f"The number of predicted followers is {round(prediction[0])}. Sorry! The show may not do well with the audience!"
