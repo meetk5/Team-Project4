@@ -10,6 +10,10 @@
    <!--CSS Link-->
    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 
+    <!--D3-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
     <title>Couch Vibes</title>
     <link rel="shortcut icon" type="image/jpg" href="../static/images/tv-16.png"/>
   </head>
@@ -213,7 +217,11 @@
               </div> 
 
               <div class="col-lg-11">  <!-- start slider column-->
-               
+                <div class="well">
+                  <h4>Choose Your Network</h4>
+                  <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+                <div id="sample-metadata" class="panel-body"></div>
                 <p style="text-align: center;"><strong>Runtime: </strong>%Dropdown Menu Here%</p>
                           
               </div> 
@@ -263,6 +271,6 @@
 
 
     <!--Other Scripts-->
-    <script src="../static/js/network.js"></script>
+    <script src="../static/js/app2.js"></script>
   </body>
 </html>

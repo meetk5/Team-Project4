@@ -4,7 +4,7 @@
     function dropdown(network) {
       d3.json("show_display.json").then((data) => {
         // //get samples info from json file
-        //console.log("data", data)
+        console.log("data", data)
         let shows = [];
         for (var i = 0; i < data.length; i++) {
           shows.push(data[i]);
@@ -12,7 +12,7 @@
        // console.log(shows)
         let display = d3.select("#sample-metadata");
         display.html("");
-        
+        console.log(shows)
         let networkSamples = shows.filter(function (citation) {
           return citation.runtime == network
         });
