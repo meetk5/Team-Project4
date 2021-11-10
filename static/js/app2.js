@@ -2,7 +2,7 @@
 //function init() {
   
     function dropdown(network) {
-      d3.json("show_display.json").then((data) => {
+      d3.json("runtime.json").then((data) => {
         // //get samples info from json file
         console.log("data", data)
         let shows = [];
@@ -37,15 +37,7 @@
         SlicedData = netValues.slice(0, 5);
         console.log("SlicedData", SlicedData)
     
-        // let followerResults = Object.keys(followerCounts).map(f => ({ type: f, count: followerCounts[f] }))
-        // console.log("followerResults", followerResults)
-        // // Sort the data by the most number of violations in each boro in descending (most to least)
-        // let followerValues = Object.values(followerResults).sort((a, b) => b.count - a.count);
-        // console.log("followerValues", followerValues)
-        // // Slice the first 5 objects
-        // followerSlicedData = followerValues.slice(0, 5);
-        // console.log("followerSlicedData", followerSlicedData)
-        // //  //get a list of the 5 top violations
+        
         episodeDisplay = []
         for (var s = 0; s < SlicedData.length; s++) {
           episodeDisplay.push(SlicedData[s].type);
@@ -76,7 +68,7 @@
     
     
       // //  // see dropdown
-      d3.json("show_display.json").then((data) => {
+      d3.json("runtime.json").then((data) => {
         console.log(data)
         
         var tvShows = {};
