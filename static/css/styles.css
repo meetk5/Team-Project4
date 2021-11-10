@@ -23,10 +23,7 @@ h3 {
     text-align: center;
 }
 
-h4.landing {
-    text-align: center;
-    color: black;    
-}
+
 
 h4.team {
   text-align: center;
@@ -190,8 +187,13 @@ IMG.landing:hover {
     
 }
 
+h4.landing {
+  text-align: center;
+  color: rgba(29, 28, 28, 0.719);    
+}
+
 h4.landing:hover{
-  color: rgba(29, 28, 28, 0.719);
+  color: rgb(80, 80, 80);
 }
 
 .center {

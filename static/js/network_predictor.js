@@ -1,19 +1,4 @@
-// var form = document.getElementById("myForm");
-// function handleForm(event) { event.preventDefault(); } 
-// form.addEventListener('submit', findnetwork);
 
-// var testbutton = document.getElementById("#testbutton");
-// testbutton.addEventListener('click', findnetwork);
-
-
-// var form = d3.select("form");
-// console.log(form);
-// form.on("submit", findnetwork);
-// form.on(type="reset", clearForm);
-
-// var form = d3.select("form");
-// form.on("submit", findnetwork);
-// form.on("reset", clearForm);
 
 // Good Mood input
 var slider_good = document.getElementById("myGoodRange");
@@ -90,6 +75,8 @@ slider_bad.oninput = function () {
 var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
+
+// Submit On Click Event
 var submitnetwork = document.getElementById("submitbtn");
 submitnetwork.addEventListener('click', findnetwork);
 
@@ -98,40 +85,38 @@ submitnetwork.addEventListener('click', findnetwork);
 
 // Network function code
 function findnetwork() {
-    console.log("Network function running")
-    var good = d3.select("#myGoodRange").property("value");
-    var fun = d3.select("#myFunRange").property("value");
-    var wow = d3.select("#myWowRange").property("value");
-    var sad = d3.select("#mySadRange").property("value");
-    var soso = d3.select("#mySosoRange").property("value");
-    var bad = d3.select("#myBadRange").property("value");
-    console.log(good);
+  console.log("Network function running")
+  var good = d3.select("#myGoodRange").property("value");
+  var fun = d3.select("#myFunRange").property("value");
+  var wow = d3.select("#myWowRange").property("value");
+  var sad = d3.select("#mySadRange").property("value");
+  var soso = d3.select("#mySosoRange").property("value");
+  var bad = d3.select("#myBadRange").property("value");
+  console.log(good);
 
-    var moodList = [good, fun, wow, sad, soso, bad];
+  var moodList = [good, fun, wow, sad, soso, bad];
 
-    d3.json("/get_your_recommendation", {
-        method: "POST",
-        body: JSON.stringify(
-            moodList
-        ),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    }).then(function (moodresult, err) {
-        console.log("Running then function")
-        console.log(err)
-        console.log(moodresult)
-        if (err) { throw err };
-        if (!moodresult) {
-            console.log("I wasn't able to get data from the Web API you selected.");
-            return;
-        }
-        d3.select("#network").text(moodresult)
-    })
+  d3.json("/get_your_recommendation", {
+      method: "POST",
+      body: JSON.stringify(
+          moodList
+      ),
+      headers: {
+          "Content-type": "application/json; charset=UTF-8"
+      }
+  }).then(function (moodresult, err) {
+      console.log("Running then function")
+      console.log(err)
+      console.log(moodresult)
+      if (err) { throw err };
+      if (!moodresult) {
+          console.log("I wasn't able to get data from the Web API you selected.");
+          return;
+      }
+      d3.select("#network").text(moodresult)
+  })
 }
 
-var resetnetwork = document.getElementById("resetbtn");
-resetnetwork.addEventListener('click', clearForm);
 
 // Reset Button clearForm function code
 function clearForm() {
