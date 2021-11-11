@@ -1,7 +1,7 @@
 # Team-Project 4
-# Couch Vibes - TV Shows vs Moods
+# The Couch Vibes - TV Shows vs Moods
 
-**[Couch Vibes Heroku Link](Update the Heroku link HERE)**
+**[The Couch Vibes Heroku Link](Update the Heroku link HERE)**
 
 ## **Table of Contents**
 
@@ -22,9 +22,9 @@
 
 #### **Data sources:** 
 
-For our website, we used [TV Times Shows Dataset](https://www.kaggle.com/oscarfry/tvtime-shows) that contains data of restaurants, their location, cuisines, inspection report, violations and their description of all boroughs in NYC. Our dataset had 382k rows and 26 columns. While going through our data we were able to decide that we will do visualizations around cuisine data by borough, restaurant's locations on map and violation details for the restaurants.
+For our website, we used [TV Times Shows Dataset](https://www.kaggle.com/oscarfry/tvtime-shows) that has 2 csv files (all_episodes.csv and tvtimeshows.csv). All_episodes.csv had 413k rows and 14 columns.Tvtimeshows.csv had 19k rows and 10 columns. While going through our data we were able to decide that we will do 2 different machine learning models one for creators and one for audience and visualizations around popular shows based on times watched, followers, runtime, either in prime time or out of prime time.
 
-For our project, we filtered out data from January 1, 2020 till August 31, 2021 and to deploy our website in Heroku, we used a reduced dataset from January 1, 2021 till July 31, 2021.
+For our project, we had differents data for each models and visualizations and to deploy our website in Heroku, we used a reduced dataset for Heroku deployment. 
 
 ## **Technologies**
 
@@ -37,12 +37,14 @@ For our project, we filtered out data from January 1, 2020 till August 31, 2021 
 - Machine Learning
 - Tableau
 
+## **Machine Learning - Model 1 - "The Show creators"**
 
+## **Machine Learning - Model 1 - "The Show creators"**
+
+## **Machine Learning - Model 1 - "For audience"**
 ## Deploy
 
-In visual studio code using javascript, we used our JSON files to call our data queries. Once the data was called, we were able to create visualizations for our website.
 
-We later deployed flask app to run our visualization on local server.
 
 ## Website Design
 
@@ -50,19 +52,13 @@ We later deployed flask app to run our visualization on local server.
 
 - The Landing Page is responsive and has four icon images linked to other pages. Each icon expands on hover. These icons are "**For Creators**", "**For Audience**", "**For Visualizations**" and "**Team**".
 
-  ![homepageimage](https://github.com/meetk5/Team-Project3/blob/main/Images/homepage.jpg)
-
 - Each visualization page has a navbar that will indicate what the active page is. The navbar also has an image of the logo.
-
-  ![navbarimage](https://github.com/meetk5/Team-Project3/blob/main/Images/navbar.jpg)
 
 - Each page has a favicon that will appear in the browser tab
 
-  ![faviconimage](https://github.com/meetk5/Team-Project3/blob/main/Images/faviconscreenshot.jpg)
-
 ## Visualizations & Analysis
 
-We created several visualizations for our website using JavaScript libraries like Leaflet, Plotly and D3.
+We created several visualizations and made one story in Tableau
 
 ### Restaurant Finder
 
