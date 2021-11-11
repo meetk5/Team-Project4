@@ -70,7 +70,8 @@
   <div class="jumbotron jumbotron-fluid"
     style="background-color: #14abe7; color: white; padding-top: 1px; padding-bottom: 2px; text-align: center;">
     <div class="container">
-      <h1 class="display-4"><img src="../static/images/logo.png" alt="logo" width="70"> Couch Vibes</h1>
+      <h1 class="display-4"><img style="vertical-align:bottom" src="../static/images/logo.png" alt="logo" width="70">
+        Couch Vibes</h1>
       <p class="lead" style="text-align: center;">Suggest a network</p>
     </div>
   </div>
@@ -84,27 +85,42 @@
       <div class="col-12 col-md-12 col-lg-6">
 
         <div class="jumbotron jumbotron-fluid"
-          style="color: black; margin-top: 13%; margin-left: 10%; margin-bottom: 11%; text-align: left;">
+          style="color: black; margin-top: 13%; margin-left: 10%; margin-bottom: 3%; text-align: left;">
           <div class="container">
             <h1 class="display-4">What are you in the mood for?</h1>
-            <h4>Select mood values from sliders <img class="arrow" src="../static/images/arrow.png" alt="right arrow">
+            <h4>Select mood values from sliders and your preferred runtime <img class="arrow"
+                src="../static/images/arrow.png" alt="right arrow">
             </h4>
           </div>
-
-        </div>
-
-
-        <div class="container">
-          <h3 id="network"></h3>
 
         </div>
 
         <div class="container">
           <!-- dropdown goes here -->
           <p style="text-align: center;">
-            <strong>Runtime: </strong>
-            <select id="selRuntime" onchange="optionChanged(this.value)"></select>
+            <strong>Choose Your Runtime: </strong>
+            <select id="selRuntime" onchange="optionChanged(this.value)">
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="55">55</option>
+              <option value="60">60</option>
+              <option value="85">85</option>
+            </select>
           </p>
+
+          <div style="text-align: center;" class="container">
+            <h5 id="network"></h5>
+          </div>
+
+          <div class="container" id="showlist">
+            <h4></h4>
+            
+            <ul></ul>
+          </div>
+
         </div>
 
       </div>
@@ -256,7 +272,7 @@
                 <div class="col-12 col-lg-6">
                   <div class="d-flex justify-content-center">
                     <input class="btn btn-primary btn-lg" style="background-color: #14abe7; margin-top: 3%;"
-                      type="submit" onclick="findnetwork()" value="Predict network">
+                      type="submit" onclick="findnetwork()" value="Suggest Network">
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
@@ -275,22 +291,15 @@
 
           </div>
           <!--end row 7  end table-->
-
-
-
-
         </div>
         <!--end emoji slider container-->
 
         <!-- </form> -->
         <!--end form-->
-
-
-
-
       </div>
       <!--end container fluid-->
 
+      <!-- <div style="margin-top: 5%;"></div> -->
 
       <!-- Copyright Information -->
       <a style="text-decoration: none;" href="https://github.com/meetk5/Team-Project4">

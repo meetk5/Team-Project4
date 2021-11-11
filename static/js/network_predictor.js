@@ -78,7 +78,6 @@ console.log(bad);
 var submitnetwork = document.getElementById("submitbtn");
 submitnetwork.addEventListener('click', findnetwork);
 
-
 // Network function code
 function findnetwork() {
     console.log("Network function running")
@@ -102,16 +101,46 @@ function findnetwork() {
         }
     }).then(function (moodresult, err) {
         console.log("Running then function")
-        console.log(err)
         console.log(moodresult)
         if (err) { throw err };
         if (!moodresult) {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
-        d3.select("#network").text(moodresult)
+    
+        d3.select("#network").text(`Suggested Network: ${moodresult}`)
+
+        d3.json("/tvdata").then(function (data) {
+
+            console.log(data);
+
+            var time = d3.select("#selRuntime").property("value");
+            console.log(time)
+
+            let showname = []
+
+            for (i = 0; i < data.length; i++) {
+                if ((data[i]['Network'] == moodresult) && (data[i]['Runtime'] == time)) {
+                    showname.push(data[i]['Name'])
+                }
+            }
+            console.log(showname);
+
+            // d3.select("#showlist").text(`- ${showname.slice(0,5)}`)
+
+            d3.select("#showlist").text(`Recommendation of 5 Popular Shows:`)
+
+            for (j = 0, k=0; j < showname.length, k<5; j++, k++) {
+                d3.select("#showlist").append("ul").append("li").text(`${showname[j]}`);
+
+                if ((k == 5) || (j == showname.length)){break;}
+
+            }
+        })
+
     })
 }
+
 
 // Reset Button clearForm function code
 function clearForm() {
@@ -128,4 +157,6 @@ function clearForm() {
     document.getElementById('myBadRange').value = 50;
     d3.select("#outputBad").html("50")
     document.getElementById("network").innerHTML = ""
+    document.getElementById("selRuntime").value = 15
+    document.getElementById("showlist").innerHTML = ""
 }
