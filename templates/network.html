@@ -88,8 +88,8 @@
           style="color: black; margin-top: 13%; margin-left: 10%; margin-bottom: 3%; text-align: left;">
           <div class="container">
             <h1 class="display-4">What are you in the mood for?</h1>
-            <h4>Select mood values from sliders and your preferred runtime <img class="arrow"
-                src="../static/images/arrow.png" alt="right arrow">
+            <h4>Select mood values from sliders and your runtime <img class="arrow" src="../static/images/arrow.png"
+                alt="right arrow">
             </h4>
           </div>
 
@@ -97,19 +97,20 @@
 
         <div class="container">
           <!-- dropdown goes here -->
-          <p style="text-align: center;">
-            <strong>Choose Your Runtime: </strong>
-            <select id="selRuntime" onchange="optionChanged(this.value)">
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25">25</option>
-              <option value="30">30</option>
-              <option value="45">45</option>
-              <option value="55">55</option>
-              <option value="60">60</option>
-              <option value="85">85</option>
-            </select>
-          </p>
+          <div style="text-align: center;">
+            <h5>Choose Your Runtime:
+              <select id="selRuntime" onchange="optionChanged(this.value)">
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="55">55</option>
+                <option value="60">60</option>
+                <option value="85">85</option>
+              </select>
+            </h5>
+          </div>
 
           <div style="text-align: center;" class="container">
             <h5 id="network"></h5>
@@ -117,7 +118,7 @@
 
           <div class="container" id="showlist">
             <h4></h4>
-            
+
             <ul></ul>
           </div>
 

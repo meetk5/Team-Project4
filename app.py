@@ -127,16 +127,16 @@ def show_predict():
     prediction = model.predict([new_list])
     print(f"Predicted Followers: {prediction}")
 
-    new_line = '\n'
+    new_line = "\n"
 
     if (prediction > 0) and (prediction <= 1000000):
-        return_string = f"The number of predicted followers is {round(prediction[0])}. {new_line} Sorry! The show may not do well with the audience!"
+        return_string = f"The number of predicted followers is {round(prediction[0])}. Sorry! The show may not do well with the audience!"
     elif (prediction > 1000000) and (prediction <= 1500000):
-        return_string = f"The number of predicted followers is {round(prediction[0])}. {new_line} Your show will get an average commercial success!"
+        return_string = f"The number of predicted followers is {round(prediction[0])}. Your show will get an average commercial success!"
     elif (prediction > 1500000) and (prediction <= 2200000):
-        return_string = f"The number of predicted followers is {round(prediction[0])}. {new_line} Congratulations! Your show will be a GREAT SUCCESS!"
+        return_string = f"The number of predicted followers is {round(prediction[0])}. CONGRATULATIONS! Your show will be a GREAT SUCCESS!"
     elif (prediction > 2200000):
-        return_string = f"The number of predicted followers is {round(prediction[0])}. {new_line} CONGRATULATIONS! Your show will be a BLOCKBUSTER!"
+        return_string = f"The number of predicted followers is {round(prediction[0])}. CONGRATULATIONS! Your show will be a BLOCKBUSTER!"
     return jsonify(return_string)
 
 

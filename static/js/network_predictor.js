@@ -107,7 +107,7 @@ function findnetwork() {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
-    
+
         d3.select("#network").text(`Suggested Network: ${moodresult}`)
 
         d3.json("/tvdata").then(function (data) {
@@ -128,12 +128,15 @@ function findnetwork() {
 
             // d3.select("#showlist").text(`- ${showname.slice(0,5)}`)
 
-            d3.select("#showlist").text(`Recommendation of 5 Popular Shows:`)
+            d3.select("#showlist").text(`Recommendation of Popular Shows:`)
 
-            for (j = 0, k=0; j < showname.length, k<5; j++, k++) {
-                d3.select("#showlist").append("ul").append("li").text(`${showname[j]}`);
-
-                if ((k == 5) || (j == showname.length)){break;}
+            for (j = 0, k = 0; j < showname.length, k < 5; j++, k++) {
+                if (showname.length == 0) {
+                    d3.select("#showlist").text(`No Shows for your current runtime selection :(`)
+                } else {
+                    d3.select("#showlist").append("ul").append("li").text(`${showname[j]}`);
+                }
+                if ((k == 4) || (j == ((showname.length) - 1))) { break; }
 
             }
         })

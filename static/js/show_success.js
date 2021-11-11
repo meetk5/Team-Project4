@@ -106,8 +106,16 @@ function show_predict() {
         if (!moodresult1) {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
-        }
-        d3.select("#followers").text(moodresult1)
+        } d3.select("#followers").text(moodresult1)
+
+        // let new_line = `/n`
+
+        // if (( moodresult1 > 0) && (moodresult1 <= 1000000)){
+        //     d3.select("#followers").append("h3").text(`The number of predicted followers is ${moodresult1}. Sorry! The show may not do well with the audience!`)
+        // } else if(( moodresult1 > 1000000) && (moodresult1 <= 1500000)){
+        //     d3.select("#followers").append("h3").text(`The number of predicted followers is ${moodresult1}. Your show will get an average commercial success!`)
+        // } else if
+
     })
 }
 
@@ -118,18 +126,18 @@ resetshow.addEventListener('click', clearForm);
 // Reset Button clearForm function code
 
 function clearForm() {
-  document.getElementById('myGoodRange').value = 50;
-  d3.select("#outputGood").html("50")
-  document.getElementById('myFunRange').value = 50;
-  d3.select("#outputFun").html("50")
-  document.getElementById('myWowRange').value = 50;
-  d3.select("#outputWow").html("50")
-  document.getElementById('mySosoRange').value = 50;
-  d3.select("#outputSoso").html("50")
-  document.getElementById('mySadRange').value = 50;
-  d3.select("#outputSad").html("50")
-  document.getElementById('myBadRange').value = 50;
-  d3.select("#outputBad").html("50")
-  document.getElementById("followers").innerHTML=""
-  document.getElementById("success").innerHTML=""
+    document.getElementById('myGoodRange').value = 50;
+    d3.select("#outputGood").html("50")
+    document.getElementById('myFunRange').value = 50;
+    d3.select("#outputFun").html("50")
+    document.getElementById('myWowRange').value = 50;
+    d3.select("#outputWow").html("50")
+    document.getElementById('mySosoRange').value = 50;
+    d3.select("#outputSoso").html("50")
+    document.getElementById('mySadRange').value = 50;
+    d3.select("#outputSad").html("50")
+    document.getElementById('myBadRange').value = 50;
+    d3.select("#outputBad").html("50")
+    document.getElementById("followers").innerHTML = ""
+    document.getElementById("success").innerHTML = ""
 }
