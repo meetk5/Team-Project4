@@ -1,20 +1,21 @@
 # Team-Project 4
-# The Couch Vibes - TV Shows vs Moods
+# The Couch Vibes - TV, Couch & Chill
 
 **[The Couch Vibes Heroku Link](Update the Heroku link HERE)**
 
 ## **Table of Contents**
 
-- [Background & General Info](https://github.com/meetk5/Team-Project4#background--general-info)
-- [Technologies](https://github.com/meetk5/Team-Project4#technologies)
-- [Deploy](https://github.com/meetk5/Team-Project4#deploy)
-- [Website Design](https://github.com/meetk5/Team-Project4#website-design)
-- [Visualizations & Analysis](https://github.com/meetk5/Team-Project4#visualizations--analysis)
-- [Run Flask](https://github.com/meetk5/Team-Project4#run-flask)
-- [Heroku](https://github.com/meetk5/Team-Project4#heroku)
-- [Lessons Learned](https://github.com/meetk5/Team-Project4#lessons-learned)
-- [Inspiration](https://github.com/meetk5/Team-Project4#inspiration)
-- [Team Members](https://github.com/meetk5/Team-Project4#team-members)
+- [Background & General Info]()
+- [Technologies]()
+- [Machine Learning Model 1- The Show Success Model]()
+- [Machine Learning Model 2- The Network Model]()
+- [Deploy]()
+- [Website Design]()
+- [Visualizations & Analysis]()
+- [Heroku]()
+- [Lessons Learned]()
+- [Inspiration]()
+- [Team Members]()
 
 ## **Background** & General Info (STORY WILL COME HERE)
 
@@ -22,9 +23,9 @@
 
 #### **Data sources:** 
 
-For our website, we used [TV Times Shows Dataset](https://www.kaggle.com/oscarfry/tvtime-shows) that has 2 csv files (all_episodes.csv and tvtimeshows.csv). All_episodes.csv had 413k rows and 14 columns.Tvtimeshows.csv had 19k rows and 10 columns. While going through our data we were able to decide that we will do 2 different machine learning models one for creators and one for audience and visualizations around popular shows based on times watched, followers, runtime, either in prime time or out of prime time.
+For our website, we used [TV Times Shows Dataset](https://www.kaggle.com/oscarfry/tvtime-shows) that has 2 csv files (all_episodes.csv and tvtimeshows.csv). All_episodes.csv had 413k rows and 14 columns.Tvtimeshows.csv had 19k rows and 10 columns. While going through our data we were able to decide that we will do 2 different machine learning models one for creators and one for audience and visualizations around the popular shows based on times watched, followers, runtime, either in prime time or out of prime time.
 
-For our project, we had differents data for each models and visualizations and to deploy our website in Heroku, we used a reduced dataset for Heroku deployment. 
+For our project, we had different data sets for each machine learning models and visualizations and to deploy our website in Heroku, we used a reduced dataset for Heroku deployment. 
 
 ## **Technologies**
 
@@ -33,81 +34,127 @@ For our project, we had differents data for each models and visualizations and t
 - SQL/ Postgres DB
 - JavaScript Libraries (D3, Plotly, Leaflet)
 - HTML/ CSS (Bootstrap)
-- Excel
+- Csv
 - Machine Learning
 - Tableau
 
-## **Machine Learning - Model 1 - "The Show creators"**
+## **Machine Learning - Model 1 - "The Show Success Model"**
 
-## **Machine Learning - Model 1 - "The Show creators"**
+You can see the details below what we have done for the Show Creators:
+- Show success predictor
+- Predict the show success based on the moods of the show
+- Features: Mood of the show on the range of 1-100
+- Label: Number of followers of the show
+- Regression model
 
-## **Machine Learning - Model 1 - "For audience"**
+These are the steps: 
+1. Data Cleaning
+    - Removing extraneous columns
+    - Null values
+    - Duplicates
+    - Merging datasets by grouping shows
+2. Individual scatter plots for each feature
+3. Regularization: Coefficient plots with Linear Regression, Lasso, Ridge & ElasticNet
+4. Function to test the familiar Regressors
+5. Scaling the data – StandScaler & MinMaxScaler
+6. Model Selection & Prediction
+7. MSE & R-squared score: Lesson Learnt 
+8. Exported the model -> Flask implementation
+
+Regularization: Coefficient plots with Linear Regression, Lasso, Ridge & ElasticNet
+
+![ElasticNetCoefficientPlot](Readme-images/ElasticNetCoefficientPlot.png)
+
+#### Scores of Show Success Predictor Model: 
+
+![Scores](Readme-images/outcomeofshowsuccesspredictormodel.png)
+
+**Model Comparison for Show Success Predictor** is the Random Forest Regressor
+
+![Winner of First Model](Readme-images/creatorwinner.png)
+
+## **Machine Learning - Model 2 - "The Network Model"**
+
+You can see the details below what we have done for the Network Model:
+
+- Network Predictor
+- Suggest the Network to watch based on the mood of the user
+- Features:Moods of the user in the range 1-100
+- Label: Network
+- Classification model
+
+These are the steps: 
+1. Data Cleaning
+    - Removing extra columns, Null values, Duplicates
+    - Filtered based on specific runtime (15-90 mins), Top 10 US Networks, Number of episodes
+    - Removed special entries like sports events, live events, awards, etc.
+    - Removed all entries where all mood reactions were 0 
+    - Removed data related to Netflix as it was skewing our entire data and model due to several entries
+    - Merging datasets by grouping shows
+2. Label Encoding of Labels (Networks) and MinMaxScaler scaling (between 1-100) of input data (Moods)
+3. Splitting Training & Testing Data
+4. Hyper tuning parameters, Model, Fit & Predict Classification models
+5. Exported the model -> Flask implementation
+6. Reverse Label Encoding in Flask to display Network Name
+
+#### Scores of Network Predictor Model: 
+
+![Scores](Readme-images/outcomeofnetworkpredictormodel.png)
+
 ## Deploy
 
+In visual studio code using javascript, we used our data set as cvs files. 
 
+We later deployed flask app to run our models on local server. We also used SQL database for Network Predictor Model for tv shows to create tables and reduced dataset.
+
+![SQL](Readme-images/SQLdatafortvshows.png)
+
+We were able to create visualizations in Tableau, embed a Tableau story on to a HTML for our website.
 
 ## Website Design
 
-- There are a total of 5 Webpages (1 Landing page, 1 For Creators page, 1 For Audience page, 1 For Visualizations page, 1 Team page) that were built using HTML, CSS, and Bootstrap
+We created one Landing page and 4 other pages using Bootstrap and CSS as following:
+- Landing page with 4 links to other pages.
+- Network page, which gives network suggestion based on model. Uses sliders and dropdown for parameters.
+- Followers page, which predicts whether a show will be successful or note based on model. Uses sliders for parameters.
+- Visualizations page that displays analysis using Tableau visualizations.
+- Team page that has team information.
 
-- The Landing Page is responsive and has four icon images linked to other pages. Each icon expands on hover. These icons are "**For Creators**", "**For Audience**", "**For Visualizations**" and "**Team**".
+**Landing page**
 
-- Each visualization page has a navbar that will indicate what the active page is. The navbar also has an image of the logo.
-
-- Each page has a favicon that will appear in the browser tab
-
+![Landing page](Readme-images/landingpage.png)
 ## Visualizations & Analysis
 
-We created several visualizations and made one story in Tableau
+We created several visualizations and made one story in Tableau to show TV Broadcasting Trends in USA. We used different dataset for our visualizations which contains 24 columns and 81k rows.We did not clean up visualization to see whatever available as visualizations from 1927 TO 2020. We used group, set and parameter function to have concise graphs. We used trend lines, charts, treemaps for our graphs. Based on our data set, these are the visualizations that we created in Tableau:
 
-### Restaurant Finder
+- The trends lines of TV consumption over the years in USA based on times watched and followers
+![TV shows consumption in USA](Readme-images/tvshowsconsumption.png)
+- The trend lines by top channels over the year as per followers, filter option by year slider
+![Top Channels](Readme-images/topchannels.png)
+- The most watched shows by channels,filter option by prime time in or out
+- The Flash (2014) - The most watched show review: The trends of total mood and Times Watched by episode and trend lines of total reaction to the show.
+- Top channels and shows  in prime time (8-11pm) as per times watched in bar chart and followers in line graph. 
+- The most popular shows by channel as per runtime - out of prime time 
+- Top 10 shows based on prime time (between 8-11pm) by runtime group (15-30 min, 31-45 min and 46-60min). All of shows are in the CW between 31-45 min runtime in prime time slot.
+- Filter by run time and year, find the shows. Run time filter by 20-90 mins 
 
-We used D3, Openstreetmap & Leaflet to create and plot markers of restaurant locations in NYC based on Latitude and Longitude details. We also created a borough layer in our map that assigns different colors to each borough and helps in distinguishing better. We created popups on each location pin that would display the restaurant's name, cuisine info, contact number, and borough details.
-
-![restfinder](https://github.com/meetk5/Team-Project3/blob/main/gifs/NYC-Restaurant-Inspections%20restaurant%20finder.gif)
-
-### NYC Cuisines
-
-This is an interactive webpage with a dropdown feature that lets user selects any of the five boroughs of NYC and based on their selection displays a pie chart that provides a percentage breakdown of all the cuisines in that particular borough.
-
-Below this, we have a horizontal bar chart that displays the number of restaurants for the top 10 popular cuisines for a selected borough. We also have a standard bar chart that displays the number of restaurants for all the NYC cuisines.  From this data, we can see that American cuisine is the most predominant in the city with a total of 2527 restaurants followed by Chinese cuisine with a total of 1220 restaurants.  We can also see from this graph that there are only 13 Australian cuisines in all of NYC. 
-
-Upon exploring each borough, we see that Manhattan has the greatest number of restaurants compared to any other borough. American cuisine alone in this borough dominates with 1221 restaurants as compared to Staten Island, the most popular cuisine is also American with only 99 total restaurants.
-
-For each borough, you can also see the top 5 violations.
-
-![cuisines](https://github.com/meetk5/Team-Project3/blob/main/gifs/NYC-Restaurant-Inspections.gif)
-
-### Restaurant Violations
-
-To be consistent with our design throughout our website, we decided to keep the violation webpage also as an interactive page with the same dropdown feature. Here users can select a borough and see a bar graph that displays the list of Top 15 Violation Codes and the number of times it has been recorded in the inspection report. We had a total of 35 violations but we decided to go ahead with the most occurred Top 15 violation codes to make our visualization more readable.
-
-Since our data had two separate fields which explained the violation code and their detailed description, we have provided a legend-style table that mentions all the violations in detail for each violation code. We incorporated Plotly's "**plotly-click**" function to make this page more interactive by displaying the list of 20 restaurants when users click on any of the violation code bars in the bar graph.
-
-![violation](https://github.com/meetk5/Team-Project3/blob/main/gifs/Violation-Data.gif)
-
-
-
-## Run Flask
-
+You can visit our website to see more visualizations. 
 
 
 ## Heroku
 
-**[Couch Vibes Heroku Link](https://the-data-restaurateurs.herokuapp.com/)** We were able to deploy our app to Heroku.
+**[Couch Vibes Heroku Link](HEROKU LINK HERE)** We were able to deploy our app to Heroku.
 
 ## Lessons Learned
 
-1. One of the biggest challenges in this project was to deploy our website on Heroku. Since our data had around 43k rows of data, we had to reduce our dataset to 7k entries to deploy on Heroku. Since we were deploying this on Heroku for the first time, we learned many new things like importing correct libraries, modifying flask, connecting to Heroku's database, and ensuring that your data is under 10k records.
-2. While establishing a connection with Flask using SQL Alchemy, we faced an error because we had not defined the primary key in our violations table.
-3. When we removed all null values from our violations dataset, For loop in our JavaScript was throwing an error as it was missing an iterable element.
-4. In our "Restaurant Finder" webpage, we were not able to see layers for map objects because of null values in our data which break the chain of the codes. As we had 7873 restaurants appear on the map, we are not able to see the borough colors clearly, especially for Manhattan. Because number of the restaurants, zoom in and out functions don't work properly and distorts popups for such a big number. It takes time for map to reform back.
 
 ## Inspiration
 
 Our inspiration for this project were Rutgers Data Science Bootcamp and Good TV Shows.
 
 ## **Team Members**
+
+![Team page](Readme-images/teampage.png)
 
 - [Brian Johnson](https://github.com/Bjohnson08021/)
 
@@ -118,4 +165,3 @@ Our inspiration for this project were Rutgers Data Science Bootcamp and Good TV 
 - [Meet K Kaur Sahni](https://github.com/meetk5)
 
 - [Saleha Ahmed](https://github.com/saleha456)
-
