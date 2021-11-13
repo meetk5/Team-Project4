@@ -1,3 +1,4 @@
+bz2file==0.98
 certifi==2020.12.5
 charset-normalizer==2.0.7
 click==8.0.3
@@ -13,6 +14,7 @@ Jinja2==3.0.3
 joblib==1.1.0
 MarkupSafe==2.0.1
 numpy==1.19.5
+pickle-mixin==1.0.2
 psycopg2==2.9.2
 requests==2.26.0
 scikit-learn==0.24.2
