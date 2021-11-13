@@ -144,7 +144,7 @@ We created several visualizations and made one story in Tableau to show TV Broad
 - Top channels and shows  in prime time (8-11pm) as per times watched in bar chart and followers in line graph. 
 - The most popular shows by channel as per runtime - out of prime time 
 - Top 10 shows based on prime time (between 8-11pm) by runtime group (15-30 min, 31-45 min and 46-60min). All of shows are in the CW between 31-45 min runtime in prime time slot.
-- Filter by run time and year, find the shows. Run time filter by 20-90 mins 
+- Filter by run time and year, find the shows. Run time filter by 20-90 mins. 
 
 You can visit our website to see more visualizations. 
 ![Visualizations](Readme-images/visualization.gif)
