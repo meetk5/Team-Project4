@@ -1,7 +1,7 @@
 # Team-Project 4
 # The Couch Vibes - TV, Couch & Chill
 
-**[The Couch Vibes Heroku Link](Update the Heroku link HERE)**
+**[The Couch Vibes Heroku Link](https://couch-vibes.herokuapp.com/)**
 
 ## **Table of Contents**
 
@@ -25,15 +25,15 @@ Today, American networks play thousands of different programs every day. Some pr
 
 As a viewer, it also becomes very difficult to decide what to watch and wherewith the limited time that we have these days. For our final project "Couch Vibes", we used a supervised machine learning model to address these two points.
 
-In our first supervised model - "Show Success Predictor Model", we utilize different mood reactions in our dataset to predict the number of followers that a show can reach and whether it will achieve success or not. This model is particularly helpful for network executives to determine whether a show will achieve success or not based on reactions to its pilot.
+In our first supervised model **"Show Success Predictor Model"**, we utilize different mood reactions in our dataset to predict the number of followers that a show can reach and whether it will achieve success or not. This model is particularly helpful for network executives to determine whether a show will achieve success or not based on reactions to its pilot.
 
-In our second supervised model - "Network Predictor Model", we suggest a network to the user based on their current mood. We utilize the same mood reactions as before as an input in our model. Additionally, we also provide users with a dropdown to select a preferred runtime, so that we can recommend 5 Popular shows for the suggested network. This model is helpful for viewers to determine what they want to see when they unwind at the end of the day.
+In our second supervised model **"Network Predictor Model"**, we suggest a network to the user based on their current mood. We utilize the same mood reactions as before as an input in our model. Additionally, we also provide users with a dropdown to select a preferred runtime, so that we can recommend 5 Popular shows for the suggested network. This model is helpful for viewers to determine what they want to see when they unwind at the end of the day.
 
 #### **Data sources:** 
 
 For our website, we used [TV Times Shows Dataset](https://www.kaggle.com/oscarfry/tvtime-shows) that has 2 csv files (all_episodes.csv and tvtimeshows.csv). All_episodes.csv had 413k rows and 14 columns.Tvtimeshows.csv had 19k rows and 10 columns. While going through our data we were able to decide that we will do 2 different machine learning models one for creators and one for audience and visualizations around the popular shows based on times watched, followers, runtime, either in prime time or out of prime time.
 
-For our project, we had different data sets for each machine learning models and visualizations and to deploy our website in Heroku, we used a reduced dataset for Heroku deployment. 
+For our project, we had different data sets for each machine learning models and visualizations and to deploy our website in Heroku, we used a reduced dataset from model 2 for Heroku deployment. 
 
 ## **Technologies**
 
@@ -46,7 +46,7 @@ For our project, we had different data sets for each machine learning models and
 - Machine Learning
 - Tableau
 
-## **Machine Learning - Model 1 - "The Show Success Model"**
+## **Machine Learning - Model 1 - "The Show Success Predictor Model"**
 
 You can see the details below what we have done for the Show Creators:
 - Show success predictor
@@ -81,7 +81,7 @@ Regularization: Coefficient plots with Linear Regression, Lasso, Ridge & Elastic
 
 ![Winner of First Model](Readme-images/creatorwinner.png)
 
-## **Machine Learning - Model 2 - "The Network Model"**
+## **Machine Learning - Model 2 - "The Network Predictor Model"**
 
 You can see the details below what we have done for the Network Model:
 
@@ -109,6 +109,8 @@ These are the steps:
 
 ![Scores](Readme-images/outcomeofnetworkpredictormodel.png)
 
+**Model Comparison for Network Predictor** is Extra Trees Classifier (Hyper tuned model)
+
 ## Deploy
 
 In visual studio code using javascript, we used our data set as cvs files. 
@@ -133,7 +135,7 @@ We created one Landing page and 4 other pages using Bootstrap and CSS as followi
 ![Landing page](Readme-images/landingpage.png)
 ## Visualizations & Analysis
 
-We created several visualizations and made one story in Tableau to show TV Broadcasting Trends in USA. We used different dataset for our visualizations which contains 24 columns and 81k rows.We did not clean up visualization to see whatever available as visualizations from 1927 TO 2020. We used group, set and parameter function to have concise graphs. We used trend lines, charts, treemaps for our graphs. Based on our data set, these are the visualizations that we created in Tableau:
+We created several visualizations and made one story in Tableau to show TV Broadcasting Trends in USA. We used different dataset for our visualizations which contains 24 columns and 81k rows.We did not clean up visualization to see whatever available as visualizations from 1927 to 2020. We used group, set and parameter function to have concise graphs. We used trend lines, charts, treemaps for our graphs. Based on our data set, these are the visualizations that we created in Tableau:
 
 - The trends lines of TV consumption over the years in USA based on times watched and followers
 - The trend lines by top channels over the year as per followers, filter option by year slider
@@ -149,7 +151,7 @@ You can visit our website to see more visualizations.
 
 ## Heroku
 
-**[Couch Vibes Heroku Link](HEROKU LINK HERE)** We were able to deploy our app to Heroku.
+**[Couch Vibes Heroku Link](https://couch-vibes.herokuapp.com/)**. We were able to deploy our app to Heroku.
 
 ## Lessons Learned
 
