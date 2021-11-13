@@ -17,9 +17,17 @@
 - [Inspiration]()
 - [Team Members]()
 
-## **Background** & General Info (STORY WILL COME HERE)
+## **Background** & General Info
 
+Television became a modern-day necessity towards the second half of the 20th century. Since the 1950s, it has only increased in terms of content, broadcasting networks, and hours of entertainment.
 
+Today, American networks play thousands of different programs every day. Some programs/shows like Seinfeld, Friends, Breaking Bad, Game of Thrones, etc. go on to define an entire generation while some slip away into oblivion due to several reasons. 
+
+As a viewer, it also becomes very difficult to decide what to watch and wherewith the limited time that we have these days. For our final project "Couch Vibes", we used a supervised machine learning model to address these two points.
+
+In our first supervised model - "Show Success Predictor Model", we utilize different mood reactions in our dataset to predict the number of followers that a show can reach and whether it will achieve success or not. This model is particularly helpful for network executives to determine whether a show will achieve success or not based on reactions to its pilot.
+
+In our second supervised model - "Network Predictor Model", we suggest a network to the user based on their current mood. We utilize the same mood reactions as before as an input in our model. Additionally, we also provide users with a dropdown to select a preferred runtime, so that we can recommend 5 Popular shows for the suggested network. This model is helpful for viewers to determine what they want to see when they unwind at the end of the day.
 
 #### **Data sources:** 
 
@@ -128,9 +136,7 @@ We created one Landing page and 4 other pages using Bootstrap and CSS as followi
 We created several visualizations and made one story in Tableau to show TV Broadcasting Trends in USA. We used different dataset for our visualizations which contains 24 columns and 81k rows.We did not clean up visualization to see whatever available as visualizations from 1927 TO 2020. We used group, set and parameter function to have concise graphs. We used trend lines, charts, treemaps for our graphs. Based on our data set, these are the visualizations that we created in Tableau:
 
 - The trends lines of TV consumption over the years in USA based on times watched and followers
-![TV shows consumption in USA](Readme-images/tvshowsconsumption.png)
 - The trend lines by top channels over the year as per followers, filter option by year slider
-![Top Channels](Readme-images/topchannels.png)
 - The most watched shows by channels,filter option by prime time in or out
 - The Flash (2014) - The most watched show review: The trends of total mood and Times Watched by episode and trend lines of total reaction to the show.
 - Top channels and shows  in prime time (8-11pm) as per times watched in bar chart and followers in line graph. 
@@ -139,7 +145,7 @@ We created several visualizations and made one story in Tableau to show TV Broad
 - Filter by run time and year, find the shows. Run time filter by 20-90 mins 
 
 You can visit our website to see more visualizations. 
-
+![Visualizations](Readme-images/visualization.gif)
 
 ## Heroku
 
