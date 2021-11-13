@@ -5,17 +5,17 @@
 
 ## **Table of Contents**
 
-- [Background & General Info]()
-- [Technologies]()
-- [Machine Learning Model 1- The Show Success Model]()
-- [Machine Learning Model 2- The Network Model]()
-- [Deploy]()
-- [Website Design]()
-- [Visualizations & Analysis]()
-- [Heroku]()
-- [Lessons Learned]()
-- [Inspiration]()
-- [Team Members]()
+- [Background & General Info](https://github.com/meetk5/Team-Project4#background--general-info)
+- [Technologies](https://github.com/meetk5/Team-Project4#technologies)
+- [Machine Learning Model 1- The Show Success Model](https://github.com/meetk5/Team-Project4#machine-learning---model-1---the-show-success-predictor-model)
+- [Machine Learning Model 2- The Network Model](https://github.com/meetk5/Team-Project4#machine-learning---model-2---the-network-predictor-model)
+- [Deploy](https://github.com/meetk5/Team-Project4#deploy)
+- [Website Design](https://github.com/meetk5/Team-Project4#website-design)
+- [Visualizations & Analysis](https://github.com/meetk5/Team-Project4#visualizations--analysis)
+- [Heroku](https://github.com/meetk5/Team-Project4#heroku)
+- [Lessons Learned](https://github.com/meetk5/Team-Project4#lessons-learned)
+- [Inspiration](https://github.com/meetk5/Team-Project4#inspiration)
+- [Team Members](https://github.com/meetk5/Team-Project4#team-members)
 
 ## **Background** & General Info
 
