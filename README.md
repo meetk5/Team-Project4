@@ -154,7 +154,8 @@ You can visit our website to see more visualizations.
 **[Couch Vibes Heroku Link](https://couch-vibes.herokuapp.com/)**. We were able to deploy our app to Heroku.
 
 ## Lessons Learned
-
+- Getting runtime dropdown in the network predictor page was a challenge. The JavaScript code was complicated and needed to filter network and runtime parameters and sort it based on the followers to get the show name. In the end we wrote a sql query that would pass our data in a descending sort order based on followers. We then wrote a javascript part where then filtered based on the other two parameters.
+- In terms of Machine Learning, we learnt that when data of one category is enormous, it'll skew the model and will always predict that category. In our case it was Netflix that had varied data that we had to exclude to make our model dataset balanced. 
 
 ## Inspiration
 
