@@ -73,10 +73,10 @@ slider_bad.oninput = function () {
 var bad = d3.select("#myBadRange").property("value");
 console.log(bad);
 
-// On click Event
+// // On click Event
 
-var submitshow = document.getElementById("submitbtn");
-submitshow.addEventListener('click', show_predict);
+// var submitshow = document.getElementById("submitbtn");
+// submitshow.addEventListener('click', show_predict);
 
 function show_predict() {
     console.log("Follower function running")
@@ -120,8 +120,8 @@ function show_predict() {
 }
 
 
-var resetshow = document.getElementById("resetbtn");
-resetshow.addEventListener('click', clearForm);
+// var resetshow = document.getElementById("resetbtn");
+// resetshow.addEventListener('click', clearForm);
 
 // Reset Button clearForm function code
 

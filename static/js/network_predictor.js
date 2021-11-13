@@ -75,8 +75,8 @@ console.log(bad);
 
 
 // Submit On Click Event
-var submitnetwork = document.getElementById("submitbtn");
-submitnetwork.addEventListener('click', findnetwork);
+// var submitnetwork = document.getElementById("submitbtn");
+// submitnetwork.addEventListener('click', findnetwork);
 
 // Network function code
 function findnetwork() {
