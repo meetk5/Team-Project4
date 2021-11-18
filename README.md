@@ -79,7 +79,10 @@ Regularization: Coefficient plots with Linear Regression, Lasso, Ridge & Elastic
 
 **Model Comparison for Show Success Predictor** is the Random Forest Regressor
 
-![Winner of First Model](Readme-images/creatorwinner.png)
+ <p align="center">
+   <img src="/Readme-images/creatorwinner.png" alt="Winner of First Model" />
+ </p>
+
 
 ## **Machine Learning - Model 2 - "The Network Predictor Model"**
 
