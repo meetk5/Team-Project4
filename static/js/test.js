@@ -56,36 +56,94 @@ d3.json("runtime.json").then((shows) => {
     let networkReduced = showData.map(({ network, name, followers, runtime }) => ({ network, name, followers, runtime }));
     console.log(networkReduced)
 
-//     function getNetworkRuntimes(network) {
-//         d3.json("runtime.json").then((shows) => {
-//             let networkSamples = shows.filter(function (citation) {
-//                 return citation.network == network
-//             });
-//     console.log(networkSamples)
-//     var keys = ["network","followers", "runtime"];
-//     var values = ["15", "17", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90" ];
-// console.log(shows)
+    // function getNetworkRuntimes(shows, network, runtime) {
+    //     d3.json("runtime.json").then((shows) => {
+    //         let networkSamples = shows.filter(function (citation) {
+    //             return citation.network == network
+    //         });
+    // console.log(networkSamples)
+    // tvNameResults= []
+    // if (networkSamples) {
+    //     tvNameResults.push(networkSamples.network);
+    // } else {}
+    //     var keys = ["network", "followers", "runtime"]
+    //     var values = ["15", "17"];
+    // console.log(shows)
 
-// var answer = shows.filter(function(e) {
-//     return keys.every(function(a) {
-//       return values.includes(e[a])
-//     })
-//   })
-  
-//     console.log(answer)
-    //    })
-  //  }
-var filter = {network:"HBO", runtime:"50"}
-users= shows.filter(function(item) {
-    for (var key in filter) {
-      if (item[key] === undefined || item[key] != filter[key])
-        return false;
+    // var answer = networkReduced.filter(function(e) {
+    //     return keys.every(function(a) {
+    //       return values.includes(e[a])
+    //     })
+    //   })
+
+    //     console.log([answer])
+    //        })
+
+
+    function displayWinners(name, index, array) {
+        var obj = {};
+        shows.forEach(function (value) {
+            //console.log(value)
+            if (obj[value["network"]]) {
+                obj[value["network"]]++;
+            }
+            else {
+                obj[value["network"]] = 1;
+            }
+        })
+        console.log(obj)
+        //console.log("ID#", shows)
+        const twoLabels = { data: shows.map(({ network, name }) => ({ network, name })) };
+        console.log("twoLabels", twoLabels)
+        let results = Object.keys(obj).map(e => ({ type: e, count: obj[e] }))
+        console.log("results", results)
+        network = []
+        for (var j = 0; j < results.length; j++) {
+            network.push(results[j].type);
+        }
+        console.log("network", network)
+
+        let isNextItem = index + 1 < array.length ? true : false
+        if (isNextItem) {
+            console.log(`The No${index + 1} winner is ${name}.`);
+        } else {
+            console.log(`Sorry, ${name} is not one of the winners.`)
+        }
     }
-    return true;
-  });
-  
-  console.log(users)
-//getNetworkRuntimes("HBO")
+
+    networkReduced.filter((name, index, array) => displayWinners(name, index, array))
+    // }
+    var filter = { network: "HBO", runtime: "50" }
+    users = shows.filter(function (item) {
+        for (var key in filter) {
+            if (item[key] === undefined || item[key] != filter[key])
+                return false;
+        }
+        return true;
+    });
+
+    console.log(users)
+
+    const Results = () => {
+        const filterArray = useSelector((network) => network.filterArray);
+        const networks = useSelector((network) => network.network);
+
+        const filteredNetworks = useFilter(
+            () =>
+                networks.filter((network) => {
+                    return filterArray.all((key) => {
+                        // Do some comparison here, return true if you want to return the doctor
+                        return network[key] !== undefined;
+                    });
+                }),
+            [networks, filterArray]
+        );
+
+        return filteredNetworks.map((network) => { network });
+    };
+
+    console.log(Results)
+    //getNetworkRuntimes("HBO")
     // var tvNames = {};
     // shows.forEach(function(value){
     // //console.log(value)
@@ -107,74 +165,75 @@ users= shows.filter(function(item) {
     // console.log(tvNameResults)
 });
 
-    // function getNetworkRuntimes(shows, network) {
-    //   console.log(shows)
-    //   let networkRuntimes = []
-    //   let showsFilter = Object.keys(network);
-    //   console.log(showsFilter)
-    //   return shows.filter(networkshows =>{
-    //     return showsFilter.every(runtime =>{
-    //       if(!network[runtime].length) {
-    //         return true;
-    //       }
-    //       if(shows.network){
-    //         return network[runtime].includes(shows.network);
-    //       } else{
-    //       return network[runtime].some(filter => shows.some(v => v.network === filter));
-    //       }
-    //     });
+// function getNetworkRuntimes(shows, network) {
+//   console.log(shows)
+//   let networkRuntimes = []
+//   let showsFilter = Object.keys(network);
+//   console.log(showsFilter)
+//   return shows.filter(networkshows =>{
+//     return showsFilter.every(runtime =>{
+//       if(!network[runtime].length) {
+//         return true;
+//       }
+//       if(shows.network){
+//         return network[runtime].includes(shows.network);
+//       } else{
+//       return network[runtime].some(filter => shows.some(v => v.network === filter));
+//       }
+//     });
 
-    //   });
-     // console.log(networkRuntimes)
-      // let networks = []
-      // shows.forEach(function (value) {
-      //   //let variable= value.network
-      //   //console.log(variable)
-      //   //if (networkRuntimes)
-      //   // let networks = shows.filter(function (citation) {
-      //   //   return citation.runtime == network
-      //   // });
+//   });
+// console.log(networkRuntimes)
+// let networks = []
+// shows.forEach(function (value) {
+//   //let variable= value.network
+//   //console.log(variable)
+//   //if (networkRuntimes)
+//   // let networks = shows.filter(function (citation) {
+//   //   return citation.runtime == network
+//   // });
 
-      //   //  for (var j = 0; j < networks.length; j++) {
-      //   //        networkRuntimes.push(networks[j].name);
-      //   //    }
-      //   if (!networks.includes(value.network)) {
-      //     networks.push(value.network)
-      //   }
-      //     if (!networkRuntimes.includes(value.runtime)) {
-      //       networkRuntimes.push(value.runtime)
-      //     }
+//   //  for (var j = 0; j < networks.length; j++) {
+//   //        networkRuntimes.push(networks[j].name);
+//   //    }
+//   if (!networks.includes(value.network)) {
+//     networks.push(value.network)
+//   }
+//     if (!networkRuntimes.includes(value.runtime)) {
+//       networkRuntimes.push(value.runtime)
+//     }
 
-      //     else {
-      //       networks[value.network[networks]] = 1;
-      //     }
-      //     console.log(networkRuntimes)
-      //   });
-
-
-
-    //return networkRuntimes
-   // }
+//     else {
+//       networks[value.network[networks]] = 1;
+//     }
+//     console.log(networkRuntimes)
+//   });
 
 
 
-function getPopularShows(shows, network, runtime) {
-    let popularShows = []
-
-    let networkSamples = shows.filter(function (citation) {
-        return citation.network == network
-    });
-
-    let runtimeSamples = shows.filter(function (value) {
-        return value.runtime == runtime
-    });
+//return networkRuntimes
+// }
 
 
 
+// function getPopularShows(shows, network, runtime) {
+//     let popularShows = []
+
+//     let networkSamples = shows.filter(function (citation) {
+//         return citation.network == network
+//         if network
+//     });
+
+//     let runtimeSamples = shows.filter(function (value) {
+//         return value.runtime == runtime
+//     });
+
+// shows.filters((shows, network, runtime) => getPopularShows(shows, network, runtime))
 
 
-    return popularShows
-}
+
+//     return popularShows
+// }
 
 function networkDropdownChange(network) {
     console.log("heres my network: ", network)
