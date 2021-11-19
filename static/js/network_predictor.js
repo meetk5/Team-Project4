@@ -163,4 +163,3 @@ function clearForm() {
     document.getElementById("selRuntime").value = 15
     document.getElementById("showlist").innerHTML = ""
 }
-//add on later

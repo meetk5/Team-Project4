@@ -141,4 +141,3 @@ function clearForm() {
     document.getElementById("followers").innerHTML = ""
     document.getElementById("success").innerHTML = ""
 }
-//add on later
